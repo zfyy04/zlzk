@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.picker.min.css" />
+		<style>
+				.area {
+				margin: 20px auto 0px auto;
+				.mui-input-group:first-child {
+					margin-top: 20px;
+				}
+				.mui-input-row label~input,
+				.mui-input-row label~select,
+				.mui-checkbox input[type=checkbox],
+				.mui-radio input[type=radio] {
+					top: 6px;
+				}
+				.mui-row {
+					vertical-align: middle
+				}
+				.mui-row:after {
+					right: 0;
+					bottom: 0;
+					left: 15px;
+					height: 1px;
+					content: '';
+					-webkit-transform: scaleY(.5);
+					transform: scaleY(.5);
+				}
+				.mui-content-padded {
+					margin-top: 25px;
+				}
+				.mui-col-sm-3 {
+					border-bottom: 1px solid #c8c7cc;
+				}
+				.mui-col-sm-8 {
+					border-bottom: 1px solid #c8c7cc;
+				}
+				.mui-btn {
+					padding: 10px;
+				}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">填写商家入驻信息</h1>
+		</header>
+		<div class="mui-content" id="content">
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label>店铺编号</label>
+					<input id='shopNo' type="text" class="mui-input-clear mui-input" placeholder="请输入店铺编号">
+				</div>
+				<div class="mui-input-row">
+					<label>店铺名称</label>
+					<input id='shopName' type="text" class="mui-input-clear mui-input" placeholder="请输入店铺名称">
+				</div>
+				<div class="mui-input-row">
+					<label>店铺类型</label>
+					<input id='shopType' type="text" readonly="readonly" class="mui-input-clear mui-input">
+				</div>
+				<div class="mui-input-row">
+					<label>联系人</label>
+					<input id='linkPerson' type="text" class="mui-input-clear mui-input" placeholder="请输入店铺名称">
+				</div>
+				<div class="mui-input-row">
+					<label>性别</label>
+					<div style="float: left; width:90px;" class="mui-radio">
+						<label>男</label>
+						<input id="Gender_male" name="gender" class="gender" type="radio" checked="true" />
+					</div>
+					<div style="float: left; width:90px;" class="mui-radio">
+						<label>女</label>
+						<input id="Gender_female" name="gender" class="gender" type="radio">
+					</div>
+				</div>
+				<div class="mui-row mui-input-row">
+					<div class="mui-col-xs-7 mui-col-sm-8" style="margin-left:10px;"><input id='phoneNo' type="text" class="mui-input-clear mui-input" placeholder="请输入手机号"></div>
+					<div class="mui-col-xs-4 mui-col-sm-3" style="padding: 10px;height: 41px;">
+						<a href="#">获取验证码</a>
+					</div>
+				</div>
+				<div style="height: 0.5px;background: #ddd;margin-left: 15px;"></div>
+				<div class="mui-input-row">
+					<input id='code' type="text" class="mui-input-clear mui-input" placeholder="  请输入验证码">
+				</div>
+				<div class="mui-input-row">
+					<label>密码</label>
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+				</div>
+				<div class="mui-input-row">
+					<label>确认</label>
+					<input id='password_confirm' type="password" class="mui-input-clear mui-input" placeholder="请确认密码">
+				</div>
+				<div class="mui-input-row">
+					<label>身份证号</label>
+					<input id='passportid' type="text" class="mui-input-clear mui-input" placeholder="请输入身份证号">
+				</div>
+				<div class="mui-input-row">
+					<label>出生日期</label>
+					<input id='birthday' type="text" class="mui-input-clear mui-input" placeholder="请输入生日">
+				</div>
+				<div class="mui-input-row">
+					<label>经营地址</label>
+					<input id='address' type="text" class="mui-input-clear mui-input" placeholder="请输入经营地址">
+				</div>
+				<div class="mui-content-padded"></div>
+				<div>
+					<ul class="mui-table-view mui-image-uploader">
+						<li class="mui-table-view-title" style="padding-left: 15px;font-size:medium;">请上传附件</li>
+						<li class="mui-table-view-title" style="padding-left: 15px;font-size:small;color: #ccc;">(请上传营业执照、消防许可证、卫生许可证、特种作业许可证)</li>
+						<div>
+							<label class="row-label"></label>
+							<div id='div_image_uploader_container' class="row image-list">
+								<div class="image-item" v-for='attachment in task.Attachments'>
+									<img data-preview-src="" data-preview-group="1" :src="attachment.FilePath" />
+									<span :id="attachment.Id" class="del">
+							    <div class="fa fa-times-circle"></div>
+							</span>
+								</div>
+							</div>
+						</div>
+					</ul>
+				</div>
+
+				<div class="mui-content-padded"></div>
+			</form>
+			<div class="mui-content-padded">
+				<button id='reg' class="mui-btn mui-btn-block mui-btn-primary">注册</button>
+			</div>
+			<div class="mui-content-padded">
+				<p>注册真实可用，注册成功后的用户可用于登录，但是示例程序并未和服务端交互，用户相关数据仅存储于本地。</p>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/app.js"></script>
+		<script src="../../js/mui.picker.min.js"></script>
+		<script src="../../js/vue.min.js"></script>
+		<script>
+			/**
+			 * 初始化UI
+			 */
+			initUI = function() {
+				model = new Vue({
+					el: '#content',
+					data: {
+						task: {
+							Id: null,
+							SheetCode: null,
+							OriginalCode: null,
+							CreateUserName: null,
+							CreateDate: null,
+							AreaDepartment: null,
+							AreaSpecialized: null,
+							AreaUnit: null,
+							Location: null,
+							Content: null,
+							Attachments: [],
+							Graded: null,
+							UrgencyGraded: null,
+							PlanBeginDate: null,
+							PlanEndDate: null,
+							ResponsibleUserId: null,
+							ResponsibleUserName: null,
+							JoinUserId: null,
+							JoinUserName: null,
+							ContractTeamId: null,
+							ContractTeamName: null,
+							TeamEmployeeIds: null,
+							TeamEmployeeNames: null
+						},
+						taskConditionNumber: {}
+					},
+					methods: {
+						//				TaskSafetyClick: taskSafetyClick,
+						//				TaskTechnicalClick: taskTechnicalClick,
+						//				TaskCooperateClick: taskCooperateClick,
+						//				TaskMaterialClick: taskMaterialClick,
+						//				TeamClick: teamClick,
+						//				TeamEmployeeClick: teamEmployeeClick,
+						//				SubmitClick: save
+					}
+				});
+			};
+			
+			(function($, doc) {
+				$.init();
+				//				initUI();
+
+				var regButton = doc.getElementById('reg');
+				//普通示例
+				var userPicker = new $.PopPicker();
+				userPicker.setData([{
+					value: 'ywj',
+					text: '现代产品'
+				}, {
+					value: 'aaa',
+					text: '农特产品'
+				}, {
+					value: 'lj',
+					text: '民族工艺产品'
+				}, {
+					value: 'ymt',
+					text: '理疗产品'
+				}, {
+					value: 'shq',
+					text: '中医人才'
+				}, {
+					value: 'zhbh',
+					text: '法律人才'
+				}]);
+
+				document.getElementById("shopType").addEventListener('tap', function() {
+					var _self = this;
+					userPicker.show(function(items) {
+						_self.value = items[0].text;
+						//返回 false 可以阻止选择框的关闭
+						//return false;
+					});
+				});
+				document.getElementById("birthday").addEventListener('tap', function() {
+					var _self = this;
+					if(_self.picker) {
+						_self.picker.show(function(rs) {
+							this.value = +rs.text;
+							_self.picker.dispose();
+							_self.picker = null;
+						});
+					} else {
+						var id = this.getAttribute('id');
+						/*
+						 * 首次显示时实例化组件
+						 * 示例为了简洁，将 options 放在了按钮的 dom 上
+						 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+						 */
+						_self.picker = new $.DtPicker({
+							"type": "date"
+						});
+						_self.picker.show(function(rs) {
+							/*
+							 * rs.value 拼合后的 value
+							 * rs.text 拼合后的 text
+							 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+							 * rs.m 月，用法同年
+							 * rs.d 日，用法同年
+							 * rs.h 时，用法同年
+							 * rs.i 分（minutes 的第二个字母），用法同年
+							 */
+							_self.value = rs.text;
+							/* 
+							 * 返回 false 可以阻止选择框的关闭
+							 * return false;
+							 */
+							/*
+							 * 释放组件资源，释放后将将不能再操作组件
+							 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+							 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+							 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+							 */
+							_self.picker.dispose();
+							_self.picker = null;
+						});
+					}
+
+				});
+				$.plusReady(function() {
+					var settings = app.getSettings();
+					var accountBox = doc.getElementById('account');
+					var passwordBox = doc.getElementById('password');
+					var passwordConfirmBox = doc.getElementById('password_confirm');
+					var emailBox = doc.getElementById('email');
+
+					regButton.addEventListener('tap', function(event) {
+						alert(123);
+						var regInfo = {
+							account: accountBox.value,
+							password: passwordBox.value,
+							email: emailBox.value
+						};
+						var passwordConfirm = passwordConfirmBox.value;
+						if(passwordConfirm != regInfo.password) {
+							plus.nativeUI.toast('密码两次输入不一致');
+							return;
+						}
+						app.reg(regInfo, function(err) {
+							if(err) {
+								plus.nativeUI.toast(err);
+								return;
+							}
+							plus.nativeUI.toast('注册成功');
+							/*
+							 * 注意：
+							 * 1、因本示例应用启动页就是登录页面，因此注册成功后，直接显示登录页即可；
+							 * 2、如果真实案例中，启动页不是登录页，则需修改，使用mui.openWindow打开真实的登录页面
+							 */
+							plus.webview.getLaunchWebview().show("pop-in", 200, function() {
+								plus.webview.currentWebview().close("none");
+							});
+							//若启动页不是登录页，则需通过如下方式打开登录页
+							//							$.openWindow({
+							//								url: 'login.html',
+							//								id: 'login',
+							//								show: {
+							//									aniShow: 'pop-in'
+							//								}
+							//							});
+						});
+					});
+				});
+			}(mui, document));
+		</script>
+	</body>
+
+</html>

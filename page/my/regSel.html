@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" /> 
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
+		<link href="css/style.css" rel="stylesheet" />
+		<!--App自定义的css-->
+
+		<style>
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			
+			.mui-input-group {
+				margin-top: 10px;
+			}
+			
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			
+			.mui-input-group label {
+				width: 22%;
+			}
+			
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 78%;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			}
+			
+			.mui-content-padded {
+				margin-top: 25px;
+			} 
+			.link-area {
+				display: block;
+				margin-top: 25px;
+				text-align: center;
+			}
+			
+			.spliter {
+				color: #bbb;
+				padding: 0px 8px;
+			}
+			
+			.oauth-area {
+				position: absolute;
+				bottom: 20px;
+				left: 0px;
+				text-align: center;
+				width: 100%;
+				padding: 0px;
+				margin: 0px;
+			}
+			
+
+			
+			.oauth-area .oauth-btn:active {
+				border: solid 1px #aaa;
+			}
+			
+			.oauth-area .oauth-btn.disabled {
+				background-color: #ddd;
+			}
+			
+			.log-div {
+				height: 45%;
+				text-align: center;
+				vertical-align: middle;
+				padding: 20%;
+			}
+			
+			.mui-content-padded {
+				padding: 20px;
+			}
+			
+			.mui-content-padded a {
+				margin: 15px;
+				width: 57px;
+				height: 57px;
+
+				display: inline-block;
+				text-align: center;
+				background-color: #fff;
+				border: 2px solid #ccc;
+				border-radius: 28px;
+				background-clip: padding-box;
+			}
+			
+			.mui-content-padded a .mui-icon-extra {
+				margin-top: 12px;
+			}
+			
+			.mui-spinner,
+			.mui-spinner-white {
+				margin-top: 12px
+			}
+			
+			.active .mui-spinner-indicator {
+				background: #007AFF;
+			}
+			
+			.mui-content a {
+				color: #FD4F01;
+			}
+			
+			.mui-content a.active {
+				color: #007aff;
+			} 
+		   .sub{font-size:12px;color: #ccc;}
+		</style>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">请选择</h1>
+
+		</header>
+		<div class="mui-content">
+			<form id='login-form' class="mui-input-group">
+				<div class="log-div">
+					<img src="images/zlzk_log.png" align="absmiddle">
+					<font size="5.5" face=黑体>中联智科</font>
+				</div>
+				<div class="mui-input-row mui-content-padded " style="text-align: center;font-size:xx-large;height: 40%;">
+					<a><span class="mui-icon-extra mui-icon-extra-addpeople"></span><br/><br/><span class="sub">用户注册</span></a>
+					</a>
+					<a><span class="mui-icon-extra mui-icon-extra-cart"></span><br/><br/><span class="sub">商家注册</span></a>
+					<a><span class="mui-icon-extra mui-icon-extra-hotel"></span><br/><br/><span class="sub">旅店注册</span></a>
+				</div>
+			</form>
+
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.enterfocus.js"></script>
+		<script src="js/app.js"></script>
+		<script>
+		</script>
+	</body>
+
+</html>

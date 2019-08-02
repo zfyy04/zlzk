@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />
+		<style>
+				.area {
+				margin: 20px auto 0px auto;
+				.mui-input-group:first-child {
+					margin-top: 20px;
+				}
+				.mui-input-row label~input,
+				.mui-input-row label~select,
+				.mui-checkbox input[type=checkbox],
+				.mui-radio input[type=radio] {
+					top: 6px;
+				}
+				.mui-row {
+					vertical-align: middle
+				}
+				.mui-row:after {
+					right: 0;
+					bottom: 0;
+					left: 15px;
+					height: 1px;
+					content: '';
+					-webkit-transform: scaleY(.5);
+					transform: scaleY(.5);
+				}
+				.mui-content-padded {
+					margin-top: 25px;
+				}
+				.mui-col-sm-3 {
+					border-bottom: 1px solid #c8c7cc;
+				}
+				.mui-col-sm-8 {
+					border-bottom: 1px solid #c8c7cc;
+				}
+				.mui-btn {
+					padding: 10px;
+				}
+				.title-img {
+					line-height: 20px;
+					max-width: 15px;
+					height: 21px;
+				}
+				.mui-table-view {
+					line-height: 20px;
+					max-width: 15px;
+					height: 21px;
+				}
+				.mui-media-object {
+					line-height: 20px;
+					max-width: 15px;
+					height: 21px;
+				}
+				.price {
+					color: #FD4F01;
+					font-size: larger;
+				}
+		</style>
+	</head>
+
+	<body id="mybody"> 
+		<header class="mui-bar mui-bar-nav">
+			<a class=" mui-icon  mui-pull-left" id="selLocation" style="font-size:inherit;padding-top: 13px ;color: #8f8f94;">{{currentCityName}}﹀</a>
+			<div class="mui-input-row mui-search" style="margin:0 18%;position: absolute;width: 63%;">
+				<input type="search" class="mui-input-clear" placeholder="热搜内容     ">
+			</div>
+			<a class="mui-icon mui-icon-chat mui-pull-right"></a>
+		</header>
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view mui-table-view-chevron">
+					<!-- 滚动bannel -->
+					<div id="slider" class="mui-slider">
+						<div class="mui-slider-group mui-slider-loop">
+							<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+							<div class="mui-slider-item mui-slider-item-duplicate" :hreftype="banners.last.HrefType" :hrefvalue="banners.last.Value">
+								<a href="#">
+									<img :src="banners.last.Picture" :data-src="banners.last.Picture">
+								</a>
+							</div>
+							<!-- 第一张 -->
+							<div class="mui-slider-item" v-for='banner in banners.list' :hreftype="banner.HrefType" :hrefvalue="banner.Value">
+								<a href="#">
+									<img :src="banner.Picture" :data-src="banner.Picture">
+								</a>
+							</div>
+
+							<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+							<div class="mui-slider-item mui-slider-item-duplicate" :hreftype="banners.first.HrefType" :hrefvalue="banners.first.Value">
+								<a href="#">
+									<img :src="banners.first.Picture" :data-src="banners.first.Picture">
+								</a>
+							</div>
+						</div>
+						<div class="mui-slider-indicator">
+							<div v-for='i in banners.list' class="mui-indicator" :class="{'mui-active':$index===0}"></div>
+						</div>
+					</div>
+					<div class="mui-table-view-cell mui-media" style="width:100%">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" style="height: 21px;width:5px;line-height: 20px;margin-right: 5px;" src="../images/timg.jpg">
+							<div class="mui-media-body">
+								商品
+							</div>
+						</a>
+					</div>
+					<div class="mui-content">
+						<div class="mui-card" v-for="good in goods" :id="good.Id">
+							<div class="mui-card-header mui-card-media" style="height:20vw;background-image:url({{good.src}})"></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<p style="color:#FD4F01;font-size:inherit" ; ">￥{{good.price}}</p>
+									<p style="color: #333;font-size: smaller; ">{{good.name}}</p>
+								</div>
+								<div class="mui-card-footer " style="font-size:x-small; "> {{good.shopname}} </div>
+							</div>
+						</div> 
+					</div>
+
+					<div class="mui-table-view-cell mui-media " style="width:100% ">
+						<a href="javascript:; ">
+							<img class="mui-media-object mui-pull-left " style="height: 21px;width:5px;line-height: 20px;margin-right: 5px; " src="../images/timg.jpg ">
+							<div class="mui-media-body ">
+								旅店
+							</div>
+						</a>
+					</div>
+					<div class="mui-content ">
+						<div class="mui-card " v-for="room in rooms " :id="room.Id ">
+							<div class="mui-card-header mui-card-media " style="height:20vw;background-image:url({{room.src}}) "></div>
+							<div class="mui-card-content ">
+								<div class="mui-card-content-inner ">
+									<p style="color:#FD4F01;font-size:inherit " ; ">￥{{room.price}}</p>
+									<p style="color: #333;font-size: smaller; ">{{room.name}}</p>
+								</div>
+								<div class="mui-card-footer " style="font-size:x-small; "> {{room.hotelname}} </div>
+							</div>
+						</div>
+
+					</div>
+					<div class="mui-table-view-cell mui-media" style="width:100%">
+
+					</div>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script src="../js/app.js"></script>
+	<script src="../js/mui.picker.min.js"></script>
+	<script src="../js/vue.min.js"></script>
+	<script>
+		/**
+		 * 初始化UI
+		 */
+		var model = null;
+		var rooms = [{
+			price: 990.00,
+			name: "高级会所",
+			hotelname: "想太多",
+			Id: "1",
+			src: "../images/qq.png"
+		}, {
+			price: 199.00,
+			name: "标间",
+			hotelname: "如家",
+			Id: "4",
+			src: "../images/qq.png"
+		}, {
+			price: 302.00,
+			name: "情侣单间",
+			hotelname: "云福利",
+			Id: "4",
+			src: "../images/qq.png"
+		}, {
+			price: 400.00,
+			name: "豪华双人间",
+			hotelname: "七天",
+			Id: "2",
+			src: "../images/qq.png"
+		}];
+		var goods = [{
+			price: 300.00,
+			name: "好东西不容错过",
+			shopname: "良品铺子",
+			Id: "1",
+			src: "../images/qihoo.png"
+		}, {
+			price: 300.00,
+			name: "好东西不容错过",
+			shopname: "良品铺子",
+			Id: "4",
+			src: "../images/qihoo.png"
+		}, {
+			price: 302.00,
+			name: "乳胶漆",
+			shopname: "良品铺子",
+			Id: "4",
+			src: "../images/qihoo.png"
+		}, {
+			price: 400.00,
+			name: "人间仙境茶",
+			shopname: "顾得",
+			Id: "2",
+			src: "../images/qihoo.png"
+		}];
+		var banners = {
+			first: {
+				Picture: "../images/bannel_empty.jpg",
+				HrefType: "",
+				Value: ""
+			},
+			last: {
+				Picture: "../images/bannel_empty.jpg",
+				HrefType: "",
+				Value: ""
+			},
+			list: [{
+				Picture: "../images/bannel_empty.jpg",
+				HrefType: "",
+				Value: ""
+			}, {
+				Picture: "../images/bannel_empty.jpg",
+				HrefType: "",
+				Value: ""
+			}, {
+				Picture: "../images/bannel_empty.jpg",
+				HrefType: "",
+				Value: ""
+			}]
+		};
+		var currentCityCode = window.localStorage.getItem("currentCityCode") || "";
+		var currentCityName = window.localStorage.getItem("currentCityName") || "";
+		initUI = function() {
+			model = new Vue({
+				el: '#mybody',
+				data: {
+					rooms: rooms,
+					goods: goods,
+					banners: banners,
+					currentCityCode:currentCityCode||"BJ",
+					currentCityName:currentCityName||"北京"
+				}
+			});
+		};
+
+		//下拉刷新
+		function PullDownRefresh() {
+			setTimeout(function() {
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+			}, 1500);
+		}
+
+		(function($, doc) {
+			$.init({
+				swipeBack: true, //启用右滑关闭功能
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: PullDownRefresh
+					}
+				}
+			});
+			initUI();
+			var selLocation = doc.getElementById('selLocation');
+			
+			selLocation.addEventListener('tap', function(event) {
+					mui.openWindow({
+						id: "selLocation.html",
+						url: "selLocation.html",
+						extras: {currentCityCode:"BJ"},
+						show: {
+							autoShow: true
+						}
+					});
+					});
+			$.plusReady(function() {
+
+			});
+
+		}(mui, document));
+	</script>
+
+</html>

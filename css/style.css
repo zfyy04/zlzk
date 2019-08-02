@@ -1,0 +1,128 @@
+.ui-page-login,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.mui-content {
+	height: 100%;
+}
+
+.mui-plus header.mui-bar {
+	display: none;
+}
+
+.mui-plus .mui-bar-nav~.mui-content {
+	padding: 0;
+}
+
+//重写mui默认样式
+.mui-input-group {
+	margin-top: 10px;
+}
+
+.mui-input-group:first-child {
+	margin-top: 20px;
+}
+
+.mui-input-group label {
+	width: 28%;
+}
+
+.mui-input-row label~input,
+.mui-input-row label~select,
+.mui-input-row label~textarea {
+	width: 72%;
+}
+
+.mui-checkbox input[type=checkbox],
+.mui-radio input[type=radio] {
+	top: 6px;
+}
+
+.mui-content-padded {
+	margin-top: 25px;
+}
+
+.mui-btn {
+	padding: 10px;
+	border: 1px solid #FD4F01;
+	background-color: #FD4F01;
+	color: #FFF
+}
+
+a.mui-pull-right {
+	color: #abc
+}
+
+.mui-action-back {
+	color: #abc
+}
+
+.mui-radio input[type=radio]:checked:before {
+	color: #FD4F01;
+}
+.mui-card-footer{ color: #8f8f94;}
+
+/*hm开头的表示仅为 Hello MUI示例定义*/
+
+.hm-description {
+	margin: .5em 0;
+}
+
+.hm-description>li {
+	font-size: 14px;
+	color: #8f8f94;
+}
+
+.color-org {
+	color:
+}
+
+.mui-image-uploader .image-list {
+	width: 100%;
+	background-size: cover;
+	padding: 10px 10px;
+	overflow: hidden;
+}
+
+.mui-image-uploader .image-item {
+	width: 65px;
+	height: 65px;
+	background-image: url(../images/photo_icon-add.png);
+	/*background-image: url(../images/iconfont-tianjia.png);*/
+	background-size: 100% 100%;
+	display: inline-block;
+	position: relative;
+	border-radius: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.mui-image-uploader .image-item img {
+	width: 65px;
+	height: 65px;
+	border-radius: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+.mui-card{
+	width: 48%; 
+	margin-top: 1%;
+	margin-left: 1%;
+	margin-right: 1%;
+	float: left;
+	
+}
+.mui-card p,.mui-card-footer{
+	 margin-bottom:1px;
+	 margin-left: 10px;
+	 margin-right: 10px;
+	 margin-bottom:1px ;
+}
+
+.mui-content>.mui-card:first-child {
+    margin-top: 1%;
+}
