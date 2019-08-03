@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>订单填写</title>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css" />
+		<link href="../../css/style.css" rel="stylesheet" />
+		<!--App自定义的css-->
+
+		<style>
+			body{
+				background-color: #f7f7f7;
+			}
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			.mui-btn {
+				padding: 10px;
+				border: 1px solid #FD4F01;
+				background-color: #FD4F01;
+				color: #FFF
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">订单填写</h1>
+			<a class="mui-icon mui-pull-right" id='reg' style="font-size: 15px;line-height:24px;color: #FD4F01;">完成</a>
+		</header>
+		<div class="mui-content .ui-page-login">
+			<form class="mui-input-group" style="margin-top:10px;">
+				<div class="mui-input-row" style="color: #444444;">
+					<label>真实姓名</label>
+					<input type="text" placeholder="">
+				</div>
+				<div class="mui-input-row" style="color: #444444;">
+					<label>英文姓</label>
+					<input type="text" placeholder="">
+				</div>
+				<div class="mui-input-row" style="color: #444444;">
+					<label>英文名</label>
+					<input type="text" placeholder="">
+				</div>
+				<div class="mui-input-row" style="color: #444444;">
+					<label>身份证</label>
+					<input type="text" placeholder="">
+				</div>
+			</form>
+			<div class="mui-content-padded">
+				<button id='login' type="button" class="mui-btn mui-btn-block  mui-btn-app">确定</button>
+				<!--<div class="link-area"><a id='reg'>注册账号</a> <span class="spliter">|</span> <a id='forgetPassword'>忘记密码</a>-->
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.enterfocus.js"></script>
+		<script src="../../js/app.js"></script>
+		<script>
+		</script>
+	</body>
+
+</html>
