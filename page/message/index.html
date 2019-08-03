@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>消息</title>
+		<link href="../../assets/css/mui.css" rel="stylesheet" />
+		<link href="../../assets/css/app.css" rel="stylesheet" />
+		<link href="../../assets/css/pages/Message/index.css" rel="stylesheet" />
+		<script>
+			var require = {
+				baseUrl: "../../assets/js"
+			};
+		</script>
+		<script src="../../assets/js/require.js"></script>
+		<script src="../../assets/js/require.main.js"></script>
+		<script>
+			require(["pages/Message/index"]);
+		</script>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">消息</h1>
+		</header>
+		<div class="mui-content">
+			<ul id="ul_list" class="container mui-table-view" >
+				<li v-for='message in messages' class="mui-table-view-cell mui-media" :categroy="message.Categroy" v-cloak>
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-10">
+							<img class="mui-media-object mui-pull-left" v-bind:src="message.Icon">
+							<div class="mui-media-body">
+								<span class='title mui-ellipsis'>{{message.Title}}</span>
+								<span class='abstract mui-ellipsis'>{{message.NewMessageTitle}}</span>
+							</div>
+						</div>
+						<div class="mui-table-cell mui-text-right mui-col-xs-2">
+							<div class="mui-media-body">
+								<span class='data mui-ellipsis'>{{message.NewMessageDate}}</span>
+								<span class="mui-badge mui-badge-danger" v-show="message.NewMessageCount>0">{{message.NewMessageCount}}</span>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>
