@@ -10,64 +10,11 @@
 		<link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />
 		<link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />
 		<style>
-				.area {
-				margin: 20px auto 0px auto;
-				.mui-input-group:first-child {
-					margin-top: 20px;
-				}
-				.mui-input-row label~input,
-				.mui-input-row label~select,
-				.mui-checkbox input[type=checkbox],
-				.mui-radio input[type=radio] {
-					top: 6px;
-				}
-				.mui-row {
-					vertical-align: middle
-				}
-				.mui-row:after {
-					right: 0;
-					bottom: 0;
-					left: 15px;
-					height: 1px;
-					content: '';
-					-webkit-transform: scaleY(.5);
-					transform: scaleY(.5);
-				}
-				.mui-content-padded {
-					margin-top: 25px;
-				}
-				.mui-col-sm-3 {
-					border-bottom: 1px solid #c8c7cc;
-				}
-				.mui-col-sm-8 {
-					border-bottom: 1px solid #c8c7cc;
-				}
-				.mui-btn {
-					padding: 10px;
-				}
-				.title-img {
-					line-height: 20px;
-					max-width: 15px;
-					height: 21px;
-				}
-				.mui-table-view {
-					line-height: 20px;
-					max-width: 15px;
-					height: 21px;
-				}
-				.mui-media-object {
-					line-height: 20px;
-					max-width: 15px;
-					height: 21px;
-				}
-				.price {
-					color: #FD4F01;
-					font-size: larger;
-				}
+		
 		</style>
 	</head>
 
-	<body id="mybody"> 
+	<body id="mybody">
 		<header class="mui-bar mui-bar-nav">
 			<a class=" mui-icon  mui-pull-left" id="selLocation" style="font-size:inherit;padding-top: 13px ;color: #8f8f94;">{{currentCityName}}﹀</a>
 			<div class="mui-input-row mui-search" style="margin:0 18%;position: absolute;width: 63%;">
@@ -249,8 +196,8 @@
 					rooms: rooms,
 					goods: goods,
 					banners: banners,
-					currentCityCode:currentCityCode||"BJ",
-					currentCityName:currentCityName||"北京"
+					currentCityCode: currentCityCode || "BJ",
+					currentCityName: currentCityName || "北京"
 				}
 			});
 		};
@@ -274,17 +221,19 @@
 			});
 			initUI();
 			var selLocation = doc.getElementById('selLocation');
-			
+
 			selLocation.addEventListener('tap', function(event) {
-					mui.openWindow({
-						id: "selLocation.html",
-						url: "selLocation.html",
-						extras: {currentCityCode:"BJ"},
-						show: {
-							autoShow: true
-						}
-					});
-					});
+				mui.openWindow({
+					id: "selLocation.html",
+					url: "selLocation.html",
+					extras: {
+						currentCityCode: "BJ"
+					},
+					show: {
+						autoShow: true
+					}
+				});
+			});
 			$.plusReady(function() {
 
 			});
