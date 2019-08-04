@@ -86,6 +86,7 @@
 		<script src="../../js/mui.enterfocus.js"></script>
 		<script src="../../js/mui.picker.min.js"></script>
 		<script src="../../js/app.js"></script>
+		<script src="../../js/jquery.js"></script>
 		<script>
 			(function($) {
 				$.init();
@@ -96,7 +97,7 @@
 						var inputId = this.getAttribute("inputId");
 						if(_self.picker) {
 							_self.picker.show(function (rs) {
-								document.getElementById(inputId).value=rs.text;
+								$j(_self).prev().val(rs.text);
 								_self.picker.dispose();
 								_self.picker = null;
 							});
@@ -121,7 +122,7 @@
 								 * rs.h 时，用法同年
 								 * rs.i 分（minutes 的第二个字母），用法同年
 								 */
-								document.getElementById(inputId).value=rs.text;
+								$j(_self).prev().val(rs.text);
 								/* 
 								 * 返回 false 可以阻止选择框的关闭
 								 * return false;
