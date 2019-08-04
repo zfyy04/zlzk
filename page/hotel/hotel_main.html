@@ -79,9 +79,16 @@
 				background-size: 100% 100%; 
 				background-repeat: no-repeat; 
 			}
-			
+			/**文字一行展示，超出部分用*号代替**/
 			.house_search_content_name{
-				font-size: 16px;font-weight: 300;margin-left: 10px;margin-top: 5px;
+				font-size: 16px;
+				font-weight: 300;
+				margin-left: 10px;
+				margin-top: 5px;
+				word-break: keep-all;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
 			}
 			.house_search_content_price_now{
 				font-size: 16px;font-weight: 300;margin-left: 10px;float: left;color: #FD4F01;
@@ -124,7 +131,7 @@
 				<div class="house_search_content_result_div">
 					<div class="house_search_content_img" style="background-image: url(../../images/beautyCountry.png);"></div>
 					<div>
-						<div class="house_search_content_name">酒店名称</div>
+						<div class="house_search_content_name">酒店名称酒店名称酒店名称酒店名称酒店名称酒店名称酒店名称酒店名称</div>
 						<div>
 							<div class="house_search_content_price_now">￥299</div>
 							<del class="house_search_content_price_before">￥499</del>
