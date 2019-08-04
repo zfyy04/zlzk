@@ -54,14 +54,14 @@
 				<div class="mui-input-row" style="color: #444444;">
 					<label>入住时间</label>
 					<input style="float: left;width: 29%;" id="checkInDateInput" type="text" readonly="readonly"  placeholder="2019-12-12">
-					<div class="dateChoose" inputId="checkInDateInput" data-options='{"type":"date"}' style="line-height: 40px;float: right;">请选择入住时间
+					<div class="dateChoose" data-options='{"type":"date"}' style="line-height: 40px;float: right;">请选择入住时间
 					<div class="mui-icon mui-icon-arrowright"></div>
 					</div>
 				</div>
 				<div class="mui-input-row" style="color: #444444;">
 					<label>离店时间</label>
 					<input style="float: left;width: 29%;" id="checkoutDateInput" type="text" readonly="readonly"  placeholder="2019-12-12">
-					<div class="dateChoose" inputId="checkoutDateInput" data-options='{"type":"date"}' style="line-height: 40px;float: right;">请选择离店时间
+					<div class="dateChoose" data-options='{"type":"date"}' style="line-height: 40px;float: right;">请选择离店时间
 					<div class="mui-icon mui-icon-arrowright"></div>
 					</div>
 				</div>
@@ -94,7 +94,6 @@
 				btns.each(function(i, btn) {
 					btn.addEventListener('tap', function() {
 						var _self = this;
-						var inputId = this.getAttribute("inputId");
 						if(_self.picker) {
 							_self.picker.show(function (rs) {
 								$j(_self).prev().val(rs.text);
@@ -110,7 +109,6 @@
 							 * 示例为了简洁，将 options 放在了按钮的 dom 上
 							 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
 							 */
-							var inputId = this.getAttribute("inputId");
 							_self.picker = new $.DtPicker(options);
 							_self.picker.show(function(rs) {
 								/*

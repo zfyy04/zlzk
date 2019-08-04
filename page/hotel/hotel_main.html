@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>订单填写</title>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.picker.min.css" />
+		<link href="../../css/style.css" rel="stylesheet" />
+		<!--App自定义的css-->
+
+		<style>
+			body{
+				background-color: #f7f7f7;
+			}
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			.mui-btn {
+				padding: 10px;
+				border: 1px solid #FD4F01;
+				background-color: #FD4F01;
+				color: #FFF
+			}
+			.search_top_bar{
+				border:1px solid #50414142;
+				height: 30px;
+				width: 85%;
+				line-height: 30px;
+				margin-left: 30px;
+				margin-top: auto;
+				margin-bottom: auto;
+				top: 0;
+				bottom: 0;
+				position: absolute;
+				border-radius: 15px;
+			}
+			.search_top_bar_left{
+				height: 15px;
+				line-height: 15px;
+				max-width: 100px;
+				width: 35px;
+				font-size: 10px;
+				color: gray;
+				margin-left: 10px;
+				border-right: 1px solid #50414142;
+				position: relative;
+				margin-top: 8px;
+			}
+			.search_top_bar_input{
+				float: left;width: 83%;height: 28px;line-height: 28px;margin-left: -5px;border: 0;background-color: #f7f7f7;font-size: 13px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="position: relative;"></a>
+			<div class="search_top_bar">
+				<div class="search_top_bar_left" style="float: left;">成都</div>
+				<input style="float: left;width: 83%;height: 28px;line-height: 28px;margin-left: -5px;border: 0;background-color: #f7f7f7;font-size: 13px;" type="text">
+			</div>
+		</header>
+		<div class="mui-content">
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.enterfocus.js"></script>
+		<script src="../../js/app.js"></script>
+		<script src="../../js/jquery.js"></script>
+		<script>
+			(function($) {
+				$.init();
+			})(mui);
+		</script>
+	</body>
+
+</html>
