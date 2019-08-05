@@ -1,10 +1,426 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="UTF-8">
-		<title>商品首页</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>商品</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/shop/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />
+
 	</head>
+
 	<body>
-		<h2>商品首页</h2>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">商品</h1>
+		</header>
+
+		<div class="mui-content contaniner fixed-cont">
+			<aside class="assort">
+				<ul id="segmentedControls">
+					<li class="active">
+						<span>母婴用品</span>
+					</li>
+					<li>
+						<span>女装正品</span>
+					</li>
+					<li>
+						<span>男装正品</span>
+					</li>
+					<li>
+						<span>内衣服饰</span>
+					</li>
+					<li>
+						<span>化妆品</span>
+					</li>
+					<li>
+
+						<span>居家百货</span>
+					</li>
+					<li>
+
+						<span>时尚智能</span>
+					</li>
+
+				</ul>
+			</aside>
+
+			<section class="assort-cont " id="segmentedControlContents">
+				<!--<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">-->
+						<dl>
+							<dt><div style="float: left;">宝宝营养</div><div style="float: right;"><a>查看更多</a></div><div style="clear: both;"></div></dt>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph02.png" />
+									<p>DNA</p>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph03.png" />
+									<p>钙剂</p>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph02.png" />
+									<p>DNA</p>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph03.png" />
+									<p>钙剂</p>
+								</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt><div style="float: left;">妈妈专区</div><div style="float: right;"><a>查看更多</a></div><div style="clear: both;"></div></dt>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph04.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">22.58</div>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph05.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">23.00</div>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph04.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">19.99</div>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph05.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">88.28</div>
+								</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt><div style="float: left;">妈妈专区</div><div style="float: right;"><a>查看更多</a></div><div style="clear: both;"></div></dt>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph04.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">22.58</div>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph05.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">23.00</div>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph04.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">19.99</div>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph05.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">88.28</div>
+								</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt><div style="float: left;">妈妈专区</div><div style="float: right;"><a>查看更多</a></div><div style="clear: both;"></div></dt>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph04.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">22.58</div>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph05.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">23.00</div>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph04.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">19.99</div>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph05.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">88.28</div>
+								</a>
+							</dd>
+						</dl>
+						<dl id="area_爸爸专区">
+							<dt><div style="float: left;">爸爸专区</div><div style="float: right;"><a>查看更多</a></div><div style="clear: both;"></div></dt>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph04.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">22.58</div>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph05.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">23.00</div>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph04.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">19.99</div>
+								</a>
+							</dd>
+							<dd>
+								<a href="#">
+									<img src="images/classify-ph05.png" />
+									<div>
+										<div class="title">商品名称</div>
+										<div class="count">2/3</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="price">88.28</div>
+								</a>
+							</dd>
+						</dl>
+						
+					<!--</div>
+				</div>-->
+			</section>
+
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.enterfocus.js"></script>
+		<script src="../js/mui.picker.min.js"></script>
+		<script src="../../js/app.js"></script>
+		<script>
+//			(function($, doc) {
+//				$.init({
+//					swipeBack: true
+//				});
+//
+//				mui('.mui-scroll-wrapper').scroll({
+//					scrollY: true, //是否竖向滚动
+//					scrollX: false, //是否横向滚动
+//					startX: 0, //初始化时滚动至x
+//					startY: 0, //初始化时滚动至y
+//					indicators: true, //是否显示滚动条
+//					deceleration: 0.0006, //阻尼系数,系数越小滑动越灵敏
+//					bounce: true //是否启用回弹
+//				});
+//
+//			$(".assort").on('tap', 'li', function() {
+//				var lis=$(".assort li");
+//				for(var i=0;i< lis.length;i++){
+//					lis[i].classList.remove("active");
+//				}
+//				this.classList.add("active");
+//				var to=document.getElementById("area_爸爸专区");
+//				
+//				$('.mui-scroll-wrapper').scroll().scrollTo(200,100,100);
+//				
+//			});
+//				$.plusReady(function() {
+//
+//				});
+//
+//			}(mui, document));
+//			
+			
+			
+mui.init({
+	swipeBack: true //启用右滑关闭功能
+});
+var controls = document.getElementById("segmentedControls");
+var contents = document.getElementById("segmentedControlContents");
+$('#segmentedControlContents').scroll(function() {
+			var scrll_ght = $(this).scrollTop()
+			console.log(scrll_ght)
+			if(scrll_ght < 150) {
+				$("body").css('margin-top','-'+scrll_ght+'px');	
+		var yi_k = 180 - scrll_ght
+		$(".fixed-cont ").css('top',yi_k+'px');	
+		
+	} else{
+		$(".fixed-cont ").css('top',30+'px');	
+	}
+});
+	for (var i=0;i<$('#segmentedControls li').length;i++) {
+	$('li').eq(i).attr('data-index',i)	
+	$('dl').eq(i).attr('id',"dl"+i)
+	}
+	
+
+(function() {
+	var controlsElem = document.getElementById("segmentedControls");
+	var contentsElem = document.getElementById("segmentedControlContents");
+	var controlListElem = controlsElem.querySelectorAll('li');
+	var contentListElem = contentsElem.querySelectorAll('.mui-control-content');
+	var controlWrapperElem = controlsElem.parentNode;
+	var controlWrapperHeight = controlWrapperElem.offsetHeight;
+	var controlMaxScroll = controlWrapperElem.scrollHeight - controlWrapperHeight;//左侧类别最大可滚动高度
+	var maxScroll = contentsElem.scrollHeight - contentsElem.offsetHeight;//右侧内容最大可滚动高度
+	var controlHeight = controlListElem[0].offsetHeight;//左侧类别每一项的高度
+	var controlTops = []; //存储control的scrollTop值
+	var contentTops = [0]; //存储content的scrollTop值
+	var length = contentListElem.length;
+	for (var i = 0; i < length; i++) {
+		controlTops.push(controlListElem[i].offsetTop + controlHeight);
+	}
+	for (var i = 1; i < length; i++) {
+		var offsetTop = contentListElem[i].offsetTop;
+		if (offsetTop + 100 >= maxScroll) {
+			var height = Math.max(offsetTop + 100 - maxScroll, 100);
+			var totalHeight = 0;
+			var heights = [];
+			for (var j = i; j < length; j++) {
+				var offsetHeight = contentListElem[j].offsetHeight;
+				totalHeight += offsetHeight;
+				heights.push(totalHeight);
+			}
+			for (var m = 0, len = heights.length; m < len; m++) {
+				contentTops.push(parseInt(maxScroll - (height - heights[m] / totalHeight * height)));
+			}
+			break;
+		} else {
+			contentTops.push(parseInt(offsetTop));
+		}
+	}
+	contentsElem.addEventListener('scroll', function() {
+		var scrollTop = contentsElem.scrollTop;
+		for (var i = 0; i < length; i++) {
+			var offsetTop = contentTops[i];
+			var offset = Math.abs(offsetTop - scrollTop);
+//						console.log("i:"+i+",scrollTop:"+scrollTop+",offsetTop:"+offsetTop+",offset:"+offset);
+			if (scrollTop < offsetTop) {
+				if (scrollTop >= maxScroll) {
+					onScroll(length - 1);
+				} else {
+					onScroll(i - 1);
+				}
+				break;
+			} else if (offset < 20) {
+				onScroll(i);
+				break;
+			}else if(scrollTop >= maxScroll){
+				onScroll(length - 1);
+				break;
+			}
+		}
+	});
+	var lastIndex = 0;
+	//监听content滚动
+	var onScroll = function(index) {
+		if (lastIndex !== index) {
+			lastIndex = index;
+			var lastActiveElem = controlsElem.querySelector('.mui-active');
+			lastActiveElem && (lastActiveElem.classList.remove('mui-active'));
+			var currentElem = controlsElem.querySelector('.mui-control-item:nth-child(' + (index + 1) + ')');
+			currentElem.classList.add('mui-active');
+			//简单处理左侧分类滚动，要么滚动到底，要么滚动到顶
+			var controlScrollTop = controlWrapperElem.scrollTop;
+			if (controlScrollTop + controlWrapperHeight < controlTops[index]) {
+				controlWrapperElem.scrollTop = controlMaxScroll;
+			} else if (controlScrollTop > controlTops[index] - controlHeight) {
+				controlWrapperElem.scrollTop = 0;
+			}
+		}
+	};
+	//滚动到指定content
+	var scrollTo = function(index) {
+		contentsElem.scrollTop = contentTops[index];
+	};
+	mui(controlsElem).on('tap', '.mui-control-item', function(e) {
+		scrollTo(this.getAttribute('data-index'));
+		return false;
+	});
+})();
+			
+			
+		</script>
 	</body>
+
 </html>

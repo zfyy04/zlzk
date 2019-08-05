@@ -131,6 +131,7 @@
 		<script>
 			mui.init();
 			mui(".testClass").on('tap', '.bottom_menu_img_div', function() {
+				alert(123);
 				alert(this.querySelector("img").getAttribute("height"));
 			});
 			mui(".bottom_menu_txt_div").on("tap",".mui-title",function(){
