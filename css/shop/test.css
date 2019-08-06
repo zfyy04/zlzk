@@ -1,0 +1,59 @@
+/* CSS Document */
+/* author:cyy */
+/*css reset*/
+*{margin:0;padding:0;} 
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden],template {  display: none;}
+a {  background-color: transparent;}
+a:active,a:hover {  outline: 0;}
+abbr[title] {  border-bottom: 1px dotted;}
+b,strong {  font-weight: bold;}
+dfn {  font-style: italic;} 
+mark {  background: #ff0;  color: #000;}
+small {  font-size: 80%;}
+sub,sup {  font-size: 75%;  line-height: 0;  position: relative;  vertical-align: baseline;}
+sup {  top: -0.5em;}
+sub {  bottom: -0.25em;}
+img {  border: 0;}
+svg:not(:root) {  overflow: hidden;} 
+.clear{ clear:both;}
+a{text-decoration:none;outline: none;}
+a:hover{outline: none;}
+input[type="button"],input[type="submit"],input[type="text"]{-webkit-appearance: none; border-radius: 0;}
+input,label{-webkit-tap-highlight-color:rgba(255,0,0,0); }
+a,button,textarea,select{-webkit-appearance: none;-webkit-tap-highlight-color:rgba(255,0,0,0); }/* 1.去除android a/button/input标签被点击时产生的边框 2.去除ios a标签被点击时产生的半透明灰色背景 */
+
+html{font-size:10px}
+@media screen and (min-width:321px) and (max-width:375px){html{font-size:11px}}
+@media screen and (min-width:376px) and (max-width:414px){html{font-size:12px}}
+@media screen and (min-width:415px) and (max-width:639px){html{font-size:15px}}
+@media screen and (min-width:640px) and (max-width:719px){html{font-size:20px}}
+@media screen and (min-width:720px) and (max-width:749px){html{font-size:22.5px}}
+@media screen and (min-width:750px) and (max-width:799px){html{font-size:23.5px}}
+@media screen and (min-width:800px){html{font-size:25px}}
+
+/*分类*/
+.contaniner .assort{width:100%; float: left;line-height: 16px;}
+.contaniner .assort ul{ width: 100%;}
+.contaniner .assort ul li{ width: 99%;background-color: #f5f5f5;  border-bottom: solid 1px #c8c8c8; border-right: solid 1px #c8c8c8; padding:10% 4%;background-color: #fff}
+.contaniner .assort ul li img{ width: 17%; margin: 0 10%; vertical-align: middle;}
+.contaniner .assort ul li span{ font-size: 0.7em; color: #666; vertical-align: middle;}
+.contaniner .assort ul .active{  border-right: none; background-color: #efeff4}
+.contaniner .assort-cont{ width: 96%; margin: 1% 1%; float: right;line-height: 15px;}
+.contaniner .assort-cont img{ width: 100%;}
+.contaniner .assort-cont dl{ width: 100%; margin-top: 5%; overflow: hidden;background-color: #fff}
+.contaniner .assort-cont dl dt{font-size: 0.7em; color: #999;margin-bottom: 2%;padding-bottom: 2%;background-color: #efeff4;font-weight: bold;}
+.contaniner .assort-cont dl dd{ width: 48%; float: left; margin-bottom: 2%;padding:0 2% ;}
+.contaniner .assort-cont dl dd img{ height: 4.5em;width: 100%;}
+.contaniner .assort-cont dl dd a{ width: 100%; display: block;}
+.contaniner .assort-cont dl dd p{ text-align: center; color: #666; font-size: 0.65em;}
+.contaniner .assort-cont dl dd .title{ text-align: left;float: left;font-size: 0.75em;font-weight: bold ;color: #666;}
+.contaniner .assort-cont dl dd .count{ text-align: left;float: right;font-size: 0.65em;color: #666;} 
+.contaniner .assort-cont dl dd .price{ color:#FD4F01;font-weight: bold;text-align: left;font-size: 0.73em;}
+.contaniner .assort-cont dl dd:nth-child(even){margin-right: 2%;}
+.contaniner .assort-cont dl dd:nth-child(odd){margin-left: 2%;}
+.mui-scroll-wrapper{width:74%;left:auto;top:48px;}
