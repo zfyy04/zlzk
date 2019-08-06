@@ -18,6 +18,13 @@
 			body{
 				background-color: #f7f7f7;
 			}
+			.mui-table-view-cell{
+				position:relative;
+				overflow:hidden;
+				padding:11px 15px;
+				height: 46px;
+				font-size: 14px;
+			}
 			.mui-content-padded {
 				margin-top: 25px;
 			}
@@ -58,8 +65,17 @@
 			.search_middle_bar_cell>label{
 				font-size: 15px;margin-left: 10px;height: 40px;line-height: 40px;float: left;
 			}
-			.mui-icon-arrowdown-self{
-				line-height:40px;float: left;font-size: 16px;
+			.mui-icon-arrow-self{
+				line-height:40px;
+				float: left;
+				font-size: 16px;
+				background-image: url(../../images/icon/show_more.png);
+				background-size: 100% auto;
+				background-position: center center;
+				background-repeat: no-repeat;
+				height: 40px;
+				width: 17px;
+				
 			}
 			.house_search_div{
 				position: relative;
@@ -96,34 +112,46 @@
 			.house_search_content_price_before{
 				font-size: 14px;font-weight: 300;margin-left: 10px;float: left;color: gray;
 			}
+			.house_search_bar_float_div{
+				top: 98px;position: absolute;z-index: 3;background-color: #f7f7f7;width: 100%;display: none;
+			}
+			.mui-backdrop{
+				position:fixed;
+				z-index:998;
+				top:98px;
+				right:0;
+				bottom:0;
+				left:0;
+				background-color:rgba(0,0,0,.3);
+			}
 		</style>
 
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
+		<header class="mui-bar mui-bar-nav" style="position: relative;">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="position: relative;"></a>
 			<div class="search_top_bar">
 				<div class="search_top_bar_left" style="float: left;">成都</div>
 				<input style="float: left;width: 83%;height: 26px;line-height: 26px;margin-left: -5px;border: 0;background-color: #f7f7f7;font-size: 12px;margin-top: 2px;" type="text">
 			</div>
 		</header>
-		<div style="height: 40px;width: 100%;margin-top: 60px;">
-			<div class="search_middle_bar_cell">
-				<label>推荐排序</label>
-				<div class="mui-icon mui-icon-arrowdown mui-icon-arrowdown-self"></div>
+		<div style="height: 40px;width: 100%;margin-top: 10px;">
+			<div class="search_middle_bar_cell" divId="adviceOrderDiv">
+				<label style="color: gray;">推荐排序</label>
+				<div class="mui-icon-arrow-self"></div>
 			</div>
-			<div class="search_middle_bar_cell">
+			<div class="search_middle_bar_cell" divId="myNearDiv">
 				<label style="color: gray;">我的附近</label>
-				<div class="mui-icon mui-icon-arrowdown mui-icon-arrowdown-self"></div>
+				<div class="mui-icon-arrow-self"></div>
 			</div>
-			<div class="search_middle_bar_cell">
+			<div class="search_middle_bar_cell" divId="priceScopeDiv">
 				<label style="color: gray;">价格区间</label>
-				<div class="mui-icon mui-icon-arrowdown mui-icon-arrowdown-self"></div>
+				<div class="mui-icon-arrow-self"></div>
 			</div>
-			<div class="search_middle_bar_cell" style="width: 16%;">
+			<div class="search_middle_bar_cell" style="width: 16%;" divId="otherQueryDiv">
 				<label style="color: gray;">筛选</label>
-				<div class="mui-icon mui-icon-arrowdown mui-icon-arrowdown-self"></div>
+				<div class="mui-icon-arrow-self"></div>
 			</div>
 		</div>
 		<div class="house_search_div">
@@ -176,6 +204,47 @@
 				</div>
 			</div>
 		</div>
+		<!--推荐排序DIV-->
+		<div id="adviceOrderDiv" class="mui-popover" style="width: 100%;">
+			<ul id="adviceOrderUl" class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<span>
+						好评优先
+					</span>
+					<span class="mui-icon mui-icon-checkmarkempty" style="float: right;display: none;"></span>
+				</li>
+				<li class="mui-table-view-cell">
+					<span>
+						高价优先
+					</span>
+					<span class="mui-icon mui-icon-checkmarkempty" style="float: right;display: none;"></span>
+				</li>
+				<li class="mui-table-view-cell">
+					<span>
+						低价优先
+					</span>
+					<span class="mui-icon mui-icon-checkmarkempty" style="float: right;display: none;"></span>
+				</li>
+				<li class="mui-table-view-cell">
+					<span>
+						距离优先
+					</span>
+					<span class="mui-icon mui-icon-checkmarkempty" style="float: right;display: none;"></span>
+				</li>
+		  	</ul>
+		</div>
+		<!--我的附近-->
+		<div id="myNearDiv" class="mui-popover" style="width: 100%;">
+			111
+		</div>
+		<!--价格区间-->
+		<div id="priceScopeDiv" class="mui-popover" style="width: 100%;">
+			222
+		</div>
+		<!--筛选-->
+		<div id="otherQueryDiv" class="mui-popover" style="width: 100%;">
+			333
+		</div>
 		<script src="../../js/mui.min.js"></script>
 		<script src="../../js/mui.enterfocus.js"></script>
 		<script src="../../js/app.js"></script>
@@ -183,7 +252,36 @@
 		<script>
 			(function($) {
 				$.init();
+				var searchItems = mui(".search_middle_bar_cell");
+				searchItems.each(function(i, searchItem) {
+					searchItem.addEventListener('tap', function() {
+						var thisId = $j(this).attr("divId");
+						mui('#'+thisId).popover("toggle");
+						$j(".search_middle_bar_cell").find("label").css("color","gray");
+						if($j(this).find("div").css("background-image").indexOf("show_less.png")!=-1){
+							$j(this).find("div").css("background-image","url(../../images/icon/show_more.png)");
+						}else{
+							$j(this).find("div").css("background-image","url(../../images/icon/show_less.png)");
+							$j(this).find("label").css("color","#FD4F01");
+						}
+						
+					});
+				});
+				mui("#adviceOrderUl").on('tap',"li",function(){
+					$j("#adviceOrderUl").find("li").css("color","");
+					$j(".mui-icon-checkmarkempty").hide();
+					$j(this).css("color","#FD4F01");
+					$j(this).children().eq(1).show();
+				});
+				//取消点选
+				mui("body").on("tap",".mui-backdrop",function(){
+					$j(".search_middle_bar_cell").each(function(){
+						$j(this).find("div").css("background-image","url(../../images/icon/show_more.png)");
+						$j(this).find("label").css("color","gray");
+					});
+				});
 			})(mui);
+			
 		</script>
 	</body>
 
