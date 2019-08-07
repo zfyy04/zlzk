@@ -130,9 +130,27 @@
 				border-left: 2px solid #50414142;width: 2px;float: left;height: 15px;line-height: 15px;margin-left:5px;margin-top: 7px;
 			}
 			.filter_distance_around_km{
-				border-radius: 100px;width: 25%;margin: 10px;border: 1px solid gray;background-color: #f7f7f7;color: black;
+				border-radius: 100px;width: 25%;margin: 10px;border: 1px solid #867f7f;background-color: #f7f7f7;color: #867f7f;
 				line-height:1;
 			}
+			.filter_distance_around_km_choose{
+				border-radius: 100px;width: 25%;margin: 10px;border: 1px solid #FD4F01;background-color: #fff1ee;color: #FD4F01;
+				line-height:1;
+			}
+			.filter_price_around{
+				border-radius: 3px;width: 33%;margin: 10px;border: 1px solid #867f7f;background-color: #f7f7f7;color: #867f7f;
+				line-height:1;
+			}
+			.filter_price_around_choose{
+				border-radius: 3px;width: 33%;margin: 10px;border: 1px solid #FD4F01;background-color: #fff1ee;color: #FD4F01;
+				line-height:1;
+			}
+			.content_center_vh{
+				display:flex;align-items: center;justify-content: center;
+			}
+			.price_scope_condition｛
+				width: 100%;height: 50px;
+			
 		</style>
 
 	</head>
@@ -162,7 +180,7 @@
 				<label style="color: gray;">价格区间</label>
 				<div class="mui-icon-arrow-self"></div>
 			</div>
-			<div class="search_middle_bar_cell" style="width: 16%;" divId="otherQueryDiv">
+			<div class="search_middle_bar_cell" style="width: 16%;" divId="houseTypeDiv">
 				<label style="color: gray;">筛选</label>
 				<div class="mui-icon-arrow-self"></div>
 			</div>
@@ -219,7 +237,7 @@
 		</div>
 		<!--推荐排序DIV-->
 		<div id="adviceOrderDiv" class="mui-popover" style="width: 100%;">
-			<ul id="adviceOrderUl" class="mui-table-view">
+		  	<ul id="adviceOrderUl" class="mui-table-view">
 				<li class="mui-table-view-cell">
 					<span>
 						好评优先
@@ -248,24 +266,56 @@
 		</div>
 		<!--我的附近-->
 		<div id="myNearDiv" class="mui-popover" style="width: 100%;">
-			<div style="width: 100%;height: 70px;display:flex;align-items: center;justify-content: center;">
+			<div id="myNearCondDiv" style="width: 100%;height: 70px;" class="content_center_vh">
 				<button type="button" class="mui-btn mui-btn-outlined filter_distance_around_km">1KM</button>
-				<button type="button" class="mui-btn mui-btn-outlined filter_distance_around_km" style="border: 1px solid #FD4F01;background-color: #fff1ee;color: #FD4F01;">2KM</button>
+				<button type="button" class="mui-btn mui-btn-outlined filter_distance_around_km">2KM</button>
 				<button type="button" class="mui-btn mui-btn-outlined filter_distance_around_km">4KM</button>
 				<button type="button" class="mui-btn mui-btn-outlined filter_distance_around_km">8KM</button>
 			</div>
-			<div style="width: 100%;height: 70px;display:flex;align-items: center;justify-content: center;">
-				<button type="button" class="mui-btn mui-btn-outlined" style="width: 50%;margin: 10px;border: 1px solid gray;background-color: #f7f7f7;color: black;">取消</button>
+			<div id="myNearSubmitDiv" style="width: 100%;height: 70px;" class="content_center_vh">
+				<button type="button" class="mui-btn mui-btn-outlined" style="width: 50%;margin: 10px;border: 1px solid #867f7f;background-color: #f7f7f7;color: #867f7f;">取消</button>
 				<button type="button" class="mui-btn mui-btn-outlined" style="width: 50%;margin: 10px;">确认</button>
 			</div>
 		</div>
 		<!--价格区间-->
 		<div id="priceScopeDiv" class="mui-popover" style="width: 100%;">
-			222
+			<div class="price_scope_condition content_center_vh" style="margin-top: 15px;" >
+				<button type="button" class="mui-btn mui-btn-outlined filter_price_around">￥150以下</button>
+				<button type="button" class="mui-btn mui-btn-outlined filter_price_around">￥150-300</button>
+				<button type="button" class="mui-btn mui-btn-outlined filter_price_around">￥300-500</button>
+			</div>
+			<div class="price_scope_condition content_center_vh">
+				<button type="button" class="mui-btn mui-btn-outlined filter_price_around">￥500-800</button>
+				<button type="button" class="mui-btn mui-btn-outlined filter_price_around">￥800-1500</button>
+				<button type="button" class="mui-btn mui-btn-outlined filter_price_around">￥1500以上</button>
+			</div>
+			<div id="priceScopeSubmitDiv" style="width: 100%;height: 70px;" class="content_center_vh">
+				<button type="button" class="mui-btn mui-btn-outlined" style="width: 50%;margin: 10px;border: 1px solid #867f7f;background-color: #f7f7f7;color: #867f7f;">取消</button>
+				<button type="button" class="mui-btn mui-btn-outlined" style="width: 50%;margin: 10px;">确认</button>
+			</div>
 		</div>
 		<!--筛选-->
-		<div id="otherQueryDiv" class="mui-popover" style="width: 100%;">
-			333
+		<div id="houseTypeDiv" class="mui-popover" style="width: 100%;">
+			<ul id="houseTypeUl" class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<span>
+						单间
+					</span>
+					<span class="mui-icon mui-icon-checkmarkempty" style="float: right;display: none;"></span>
+				</li>
+				<li class="mui-table-view-cell">
+					<span>
+						三人间
+					</span>
+					<span class="mui-icon mui-icon-checkmarkempty" style="float: right;display: none;"></span>
+				</li>
+				<li class="mui-table-view-cell">
+					<span>
+						标间
+					</span>
+					<span class="mui-icon mui-icon-checkmarkempty" style="float: right;display: none;"></span>
+				</li>
+		  	</ul>
 		</div>
 		<script src="../../js/mui.min.js"></script>
 		<script src="../../js/mui.enterfocus.js"></script>
@@ -297,12 +347,45 @@
 						
 					});
 				});
+				//推荐排序
 				mui("#adviceOrderUl").on('tap',"li",function(){
 					$j("#adviceOrderUl").find("li").css("color","");
-					$j(".mui-icon-checkmarkempty").hide();
+					$j("#adviceOrderUl").find(".mui-icon-checkmarkempty").hide();
 					$j(this).css("color","#FD4F01");
 					$j(this).children().eq(1).show();
 				});
+				//我的附近
+				mui("#myNearCondDiv").on('tap',".mui-btn",function(){
+					$j(this).siblings().removeClass("filter_distance_around_km_choose").addClass("filter_distance_around_km");
+					$j(this).addClass("filter_distance_around_km_choose");
+				});
+				//我的附近取消和确认点选
+				mui("#myNearSubmitDiv").on('tap',".mui-btn",function(){
+					if($j(this).text()=="取消"){
+						$j("#myNearCondDiv .mui-btn").removeClass("filter_distance_around_km_choose").addClass("filter_distance_around_km");
+					}
+					mui.trigger($j(".mui-backdrop")[0],'tap');
+				});
+				//价格区间
+				mui(".price_scope_condition").on('tap',".mui-btn",function(){
+					$j(".price_scope_condition .mui-btn").removeClass("filter_price_around_choose").addClass("filter_price_around");
+					$j(this).addClass("filter_price_around_choose");
+				});
+				//价格区间确认和取消
+				mui("#priceScopeSubmitDiv").on('tap',".mui-btn",function(){
+					if($j(this).text()=="取消"){
+						$j(".price_scope_condition .mui-btn").removeClass("filter_price_around_choose").addClass("filter_price_around");
+					}
+					mui.trigger($j(".mui-backdrop")[0],'tap');
+				});
+				//房型筛选
+				mui("#houseTypeUl").on('tap',"li",function(){
+					$j("#houseTypeUl").find("li").css("color","");
+					$j("#houseTypeUl").find(".mui-icon-checkmarkempty").hide();
+					$j(this).css("color","#FD4F01");
+					$j(this).children().eq(1).show();
+				});
+				
 				//取消点选
 				mui("body").on("tap",".mui-backdrop",function(){
 					$j(".search_middle_bar_cell").each(function(){
