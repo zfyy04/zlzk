@@ -126,3 +126,27 @@ a.mui-pull-right {
 .mui-content>.mui-card:first-child {
     margin-top: 1%;
 }
+
+/* 文字一行展示,多余的用...代替 */
+.text_show_in_line{
+	word-break: keep-all;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/**
+ * 文字在div内展示，多余的用...代替
+ */
+.text_show_in_div_2{
+	overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;
+}
+
+/**
+ * div内部水平垂直居中 PS：内部div的width无效
+ */
+.content_center_vh{
+	display:flex;align-items: center;justify-content: center;
+}
+
+
