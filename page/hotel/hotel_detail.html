@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>酒店详情</title>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.picker.min.css" />
+		<link href="../../css/style.css" rel="stylesheet" />
+		<!--App自定义的css-->
+
+		<style>
+			html,body{height:100%;margin: 0;padding: 0;background-color: #f7f7f7;}
+			.top_icon{
+				height: 30px;width: 30px;background-color: #a29e9e;border-radius: 100%;
+			}
+			.detail_house_feature{
+				border-radius: 100px;
+				margin: 3px;
+				border: 0px solid gray;
+				background-color: #f2f3f7;
+				color: black;
+				line-height: 0.6;
+				font-size: 13px;
+			}
+		</style>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.enterfocus.js"></script>
+		<script src="../../js/app.js"></script>
+		<script src="../../js/jquery.js"></script>
+		<script src="../../js/vue.min.js "></script>
+	</head>
+	<script language="JavaScript">
+		var currentCityCode = window.localStorage.getItem("currentCityCode") || "";
+		var currentCityName = window.localStorage.getItem("currentCityName") || "";
+	</script>
+	<body id="hotelBody" style="height: 100%;">
+		<!--顶部图片-->
+		<div style="position: absolute;top: 0;left: 0;width: 100%;height: 200px;background-image:url(../../images/hotel/hotel_main_1.png);background-size: 100% auto;background-position: center center;background-repeat: no-repeat;">
+			<div style="margin-top: 30px;">
+				<div class="content_center_vh top_icon" style="float: left;margin-left: 20px;">
+					<span class="mui-icon mui-icon-back" style="color: white;"></span>
+				</div>
+				<div class="content_center_vh top_icon" style="float: right;margin-right: 20px;">
+					<span class="mui-icon mui-icon-redo" style="color: white;"></span>
+				</div>
+				<div class="content_center_vh top_icon" style="float: right;margin-right: 10px;">
+					<span class="mui-icon-extra mui-icon-extra-heart" style="color: white;font-size: 21px;"></span>
+				</div>
+			</div>
+		</div>
+		<div style="overflow-y: auto;position: absolute;top: 200px;bottom: 50px;width: 100%;" id="containerDiv">
+			<!--酒店介绍-->
+			<div style="width: 100%;height: 80px;max-height: 200px;background-color: #ffffff;">
+				<div style="margin-left: 20px;margin-top: 8px;width: 70%;float: left;height: 80px;">
+					<div style="font-size: 16px;">酒店介绍</div>
+					<div class="text_show_in_div_2" style="font-size: 15px;overflow: auto;color: #4e4e4d;margin-top: 6px;">高档五星级酒店，你值得拥有。高档五星级酒店，你值得拥有。高档五星级酒店，你值得拥有。高档五星级酒店，你值得拥有。</div>
+				</div>
+				<div style="margin-left: 80%;height: 80px;line-height: 80px;">
+					<span style="font-size: 16px;color: #7bbbf9;">地图</span>
+					<span class="mui-icon mui-icon-arrowright" style="font-size: 22px;"></span>
+				</div>
+			</div>
+			<!--入住日期-->
+			<div style="width: 100%;height: 80px;max-height: 200px;margin-top: 10px;background-color: #ffffff;overflow: hidden;">
+				<div style="margin-left: 20px;margin-top: 8px;width: 70%;float: left;height: 80px;">
+					<div style="font-size: 16px;">4月3日入住&nbsp;一&nbsp;4月4日离店</div>
+					<div style="font-size: 15px;color: #4e4e4d;margin-top: 6px;height: 45px;overflow: auto;">
+						<div class="mui-btn mui-btn-outlined detail_house_feature">含早餐</div>
+						<div class="mui-btn mui-btn-outlined detail_house_feature">大床</div>
+						<div class="mui-btn mui-btn-outlined detail_house_feature">有窗</div>
+						<div class="mui-btn mui-btn-outlined detail_house_feature">有窗</div>
+					</div>
+				</div>
+				<div style="margin-left: 80%;">
+					<div style="height: 40px;line-height: 40px;">
+						<span style="font-size: 16px;color: #7bbbf9;">共一晚</span>
+						<span class="mui-icon mui-icon-arrowright" style="font-size: 22px;"></span>
+					</div>
+					<div style="height: 40px;line-height: 40px;margin-top:-4px;">
+						<div class="mui-btn mui-btn-outlined detail_house_feature" style="color: #7bbbf9;">筛选<span class="mui-icon mui-icon-arrowdown" style="font-size: 13px;"></span></div>
+					</div>
+				</div>
+			</div>
+			<!--酒店房型-->
+			<div style="width: 100%;margin-top: 10px;">
+				<div style="width: 70%;float: left;background-color: #ffffff;">
+					<div style="height: 100px;width: 70%;background-color: greenyellow;margin: 4px 0px 4px 8px;"></div>
+					<div style="height: 100px;width: 70%;background-color: greenyellow;margin: 4px 0px 4px 8px;"></div>
+
+				</div>
+				<div style="margin-left: 70%;background-color: #ffffff;">
+					
+				</div>
+			</div>
+			<!--住客评价-->
+			<div style="width: 100%;height: 100px;max-height:200px;overflow-y: auto;background-color: red;margin-top: 10px;"></div>
+			<!--详细设施-->
+			<div style="width: 100%;height: 70px;max-height: 200px;background-color: green;margin-top: 10px;"></div>
+			<!--订房须知-->
+			<div style="width: 100%;height: 200px;max-height: 200px;background-color: yellow;margin-top: 10px;"></div>
+		</div>
+		<div style="position: absolute;bottom: 0;left: 0;width: 100%;">
+			<div style="float: left;width: 50%;height: 50px;">
+				<button type="button" class="mui-btn mui-btn-outlined" style="height: 50px;width:100%;border-radius: 0px;background-color: #f9f9f9;color: gray;border: none;">
+					<span class="mui-icon mui-icon-phone" style="font-size: 20px;"></span>拨打电话
+				</button>
+			</div>
+			<div style="float: left;width: 50%;height: 50px;">
+				<button type="button" class="mui-btn mui-btn-outlined" style="height: 50px;width:100%;border-radius: 0px;">查看房型</button>
+			</div>
+		</div>
+	</body>
+	<script>
+		var model = new Vue({
+			el: '#hotelBody',
+			data: {
+				currentCityCode: currentCityCode||"BJ",
+				currentCityName: currentCityName||"北京"
+			}
+		});
+		(function($) {
+			$.init();
+		})(mui);
+		
+		
+	</script>
+</html>

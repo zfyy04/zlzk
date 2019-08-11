@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>订单填写</title>
+		<title>酒店筛选</title>
 		<link href="../../css/mui.min.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -51,13 +51,15 @@
 				height: 15px;
 				line-height: 15px;
 				max-width: 100px;
-				width: 35px;
 				font-size: 10px;
 				color: gray;
 				margin-left: 10px;
-				border-right: 1px solid #50414142;
 				position: relative;
 				margin-top: 8px;
+				word-break: keep-all;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
 			}
 			.search_middle_bar_cell{
 				float: left;height: 40px;width: 28%;
@@ -124,16 +126,45 @@
 				left:0;
 				background-color:rgba(0,0,0,.3);
 			}
+			.search_top_bar_split_line{
+				border-left: 2px solid #50414142;width: 2px;float: left;height: 15px;line-height: 15px;margin-left:5px;margin-top: 7px;
+			}
+			.filter_distance_around_km{
+				border-radius: 100px;width: 25%;margin: 10px;border: 1px solid #867f7f;background-color: #f7f7f7;color: #867f7f;
+				line-height:1;
+			}
+			.filter_distance_around_km_choose{
+				border-radius: 100px;width: 25%;margin: 10px;border: 1px solid #FD4F01;background-color: #fff1ee;color: #FD4F01;
+				line-height:1;
+			}
+			.filter_price_around{
+				border-radius: 3px;width: 33%;margin: 10px;border: 1px solid #867f7f;background-color: #f7f7f7;color: #867f7f;
+				line-height:1;
+			}
+			.filter_price_around_choose{
+				border-radius: 3px;width: 33%;margin: 10px;border: 1px solid #FD4F01;background-color: #fff1ee;color: #FD4F01;
+				line-height:1;
+			}
+			.content_center_vh{
+				display:flex;align-items: center;justify-content: center;
+			}
+			.price_scope_condition{
+				width: 100%;height: 50px;
+			}
 		</style>
 
 	</head>
-
-	<body>
+	<script language="JavaScript">
+		var currentCityCode = window.localStorage.getItem("currentCityCode") || "";
+		var currentCityName = window.localStorage.getItem("currentCityName") || "";
+	</script>
+	<body id="hotelBody">
 		<header class="mui-bar mui-bar-nav" style="position: relative;">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="position: relative;"></a>
 			<div class="search_top_bar">
-				<div class="search_top_bar_left" style="float: left;">成都</div>
-				<input style="float: left;width: 83%;height: 26px;line-height: 26px;margin-left: -5px;border: 0;background-color: #f7f7f7;font-size: 12px;margin-top: 2px;" type="text">
+				<div id="cityName" class="search_top_bar_left" style="float: left;">{{currentCityName}}</div>
+				<div class="search_top_bar_split_line"></div>
+				<input style="float: left;max-width: 62%;height: 26px;line-height: 26px;border: 0;background-color: #f7f7f7;font-size: 12px;margin-top: 2px;" type="text">
 			</div>
 		</header>
 		<div style="height: 40px;width: 100%;margin-top: 10px;">
@@ -149,7 +180,7 @@
 				<label style="color: gray;">价格区间</label>
 				<div class="mui-icon-arrow-self"></div>
 			</div>
-			<div class="search_middle_bar_cell" style="width: 16%;" divId="otherQueryDiv">
+			<div class="search_middle_bar_cell" style="width: 16%;" divId="houseTypeDiv">
 				<label style="color: gray;">筛选</label>
 				<div class="mui-icon-arrow-self"></div>
 			</div>
@@ -206,7 +237,7 @@
 		</div>
 		<!--推荐排序DIV-->
 		<div id="adviceOrderDiv" class="mui-popover" style="width: 100%;">
-			<ul id="adviceOrderUl" class="mui-table-view">
+		  	<ul id="adviceOrderUl" class="mui-table-view">
 				<li class="mui-table-view-cell">
 					<span>
 						好评优先
@@ -235,21 +266,70 @@
 		</div>
 		<!--我的附近-->
 		<div id="myNearDiv" class="mui-popover" style="width: 100%;">
-			111
+			<div id="myNearCondDiv" style="width: 100%;height: 70px;" class="content_center_vh">
+				<button type="button" class="mui-btn mui-btn-outlined filter_distance_around_km">1KM</button>
+				<button type="button" class="mui-btn mui-btn-outlined filter_distance_around_km">2KM</button>
+				<button type="button" class="mui-btn mui-btn-outlined filter_distance_around_km">4KM</button>
+				<button type="button" class="mui-btn mui-btn-outlined filter_distance_around_km">8KM</button>
+			</div>
+			<div id="myNearSubmitDiv" style="width: 100%;height: 70px;" class="content_center_vh">
+				<button type="button" class="mui-btn mui-btn-outlined" style="width: 50%;margin: 10px;border: 1px solid #867f7f;background-color: #f7f7f7;color: #867f7f;">取消</button>
+				<button type="button" class="mui-btn mui-btn-outlined" style="width: 50%;margin: 10px;">确认</button>
+			</div>
 		</div>
 		<!--价格区间-->
 		<div id="priceScopeDiv" class="mui-popover" style="width: 100%;">
-			222
+			<div class="price_scope_condition content_center_vh" style="margin-top: 15px;" >
+				<button type="button" class="mui-btn mui-btn-outlined filter_price_around">￥150以下</button>
+				<button type="button" class="mui-btn mui-btn-outlined filter_price_around">￥150-300</button>
+				<button type="button" class="mui-btn mui-btn-outlined filter_price_around">￥300-500</button>
+			</div>
+			<div class="price_scope_condition content_center_vh">
+				<button type="button" class="mui-btn mui-btn-outlined filter_price_around">￥500-800</button>
+				<button type="button" class="mui-btn mui-btn-outlined filter_price_around">￥800-1500</button>
+				<button type="button" class="mui-btn mui-btn-outlined filter_price_around">￥1500以上</button>
+			</div>
+			<div id="priceScopeSubmitDiv" style="width: 100%;height: 70px;" class="content_center_vh">
+				<button type="button" class="mui-btn mui-btn-outlined" style="width: 50%;margin: 10px;border: 1px solid #867f7f;background-color: #f7f7f7;color: #867f7f;">取消</button>
+				<button type="button" class="mui-btn mui-btn-outlined" style="width: 50%;margin: 10px;">确认</button>
+			</div>
 		</div>
 		<!--筛选-->
-		<div id="otherQueryDiv" class="mui-popover" style="width: 100%;">
-			333
+		<div id="houseTypeDiv" class="mui-popover" style="width: 100%;">
+			<ul id="houseTypeUl" class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<span>
+						单间
+					</span>
+					<span class="mui-icon mui-icon-checkmarkempty" style="float: right;display: none;"></span>
+				</li>
+				<li class="mui-table-view-cell">
+					<span>
+						三人间
+					</span>
+					<span class="mui-icon mui-icon-checkmarkempty" style="float: right;display: none;"></span>
+				</li>
+				<li class="mui-table-view-cell">
+					<span>
+						标间
+					</span>
+					<span class="mui-icon mui-icon-checkmarkempty" style="float: right;display: none;"></span>
+				</li>
+		  	</ul>
 		</div>
 		<script src="../../js/mui.min.js"></script>
 		<script src="../../js/mui.enterfocus.js"></script>
 		<script src="../../js/app.js"></script>
 		<script src="../../js/jquery.js"></script>
+		<script src="../../js/vue.min.js "></script>
 		<script>
+			var model = new Vue({
+				el: '#hotelBody',
+				data: {
+					currentCityCode: currentCityCode||"BJ",
+					currentCityName: currentCityName||"北京"
+				}
+			});
 			(function($) {
 				$.init();
 				var searchItems = mui(".search_middle_bar_cell");
@@ -267,17 +347,71 @@
 						
 					});
 				});
+				//推荐排序
 				mui("#adviceOrderUl").on('tap',"li",function(){
 					$j("#adviceOrderUl").find("li").css("color","");
-					$j(".mui-icon-checkmarkempty").hide();
+					$j("#adviceOrderUl").find(".mui-icon-checkmarkempty").hide();
 					$j(this).css("color","#FD4F01");
 					$j(this).children().eq(1).show();
 				});
+				//我的附近
+				mui("#myNearCondDiv").on('tap',".mui-btn",function(){
+					$j(this).siblings().removeClass("filter_distance_around_km_choose").addClass("filter_distance_around_km");
+					$j(this).addClass("filter_distance_around_km_choose");
+				});
+				//我的附近取消和确认点选
+				mui("#myNearSubmitDiv").on('tap',".mui-btn",function(){
+					if($j(this).text()=="取消"){
+						$j("#myNearCondDiv .mui-btn").removeClass("filter_distance_around_km_choose").addClass("filter_distance_around_km");
+					}
+					mui.trigger($j(".mui-backdrop")[0],'tap');
+				});
+				//价格区间
+				mui(".price_scope_condition").on('tap',".mui-btn",function(){
+					$j(".price_scope_condition .mui-btn").removeClass("filter_price_around_choose").addClass("filter_price_around");
+					$j(this).addClass("filter_price_around_choose");
+				});
+				//价格区间确认和取消
+				mui("#priceScopeSubmitDiv").on('tap',".mui-btn",function(){
+					if($j(this).text()=="取消"){
+						$j(".price_scope_condition .mui-btn").removeClass("filter_price_around_choose").addClass("filter_price_around");
+					}
+					mui.trigger($j(".mui-backdrop")[0],'tap');
+				});
+				//房型筛选
+				mui("#houseTypeUl").on('tap',"li",function(){
+					$j("#houseTypeUl").find("li").css("color","");
+					$j("#houseTypeUl").find(".mui-icon-checkmarkempty").hide();
+					$j(this).css("color","#FD4F01");
+					$j(this).children().eq(1).show();
+				});
+				
 				//取消点选
 				mui("body").on("tap",".mui-backdrop",function(){
 					$j(".search_middle_bar_cell").each(function(){
 						$j(this).find("div").css("background-image","url(../../images/icon/show_more.png)");
 						$j(this).find("label").css("color","gray");
+					});
+				});
+				mui("body").on("tap",".search_top_bar_left",function(){
+					if($j(".mui-backdrop").length!=0){
+						mui.trigger($j(".mui-backdrop")[0],'tap');
+					}
+				});
+				//打开城市选择页面
+				var selLocation = $j(".search_top_bar_left")[0];
+				selLocation.addEventListener('tap', function(event) {
+					//设置跳转过去的页面
+					window.localStorage.setItem("fromPage","hotelMain");
+					mui.openWindow({
+						id: "selLocation.html",
+						url: "../selLocation.html",
+						extras: {
+							currentCityCode: "BJ"
+						},
+						show: {
+							autoShow: true
+						}
 					});
 				});
 			})(mui);
