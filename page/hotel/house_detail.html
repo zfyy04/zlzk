@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>房间详情</title>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.picker.min.css" />
+		<link href="../../css/style.css" rel="stylesheet" />
+		<!--App自定义的css-->
+
+		<style>
+			html,body{height:100%;margin: 0;padding: 0;background-color: #f7f7f7;}
+			.top_icon{
+				height: 30px;width: 30px;background-color: #a29e9e;border-radius: 100%;
+			}
+			.detail_house_feature{
+				border-radius: 100px;
+				margin: 3px;
+				border: 0px solid gray;
+				background-color: #f2f3f7;
+				color: black;
+				line-height: 0.6;
+				font-size: 13px;
+			}
+			.hotel_evaluation_rate_div{
+				float: left;width: 40%;height: 18px;line-height: 18px;margin: 4px 8px;color: #787878;font-size: 12px;
+			}
+			.hotel_evaluation_rate_progress_div{
+				float: left;width: 45px;margin-left: 4px;margin-top: 7px;
+			}
+			.house_introduce_div{
+				width: 100%;background-color: #ffffff;overflow: hidden;padding-bottom: 10px;
+			}
+			.house_introduce_content_div{
+				padding: 0px 20px;margin-top: 8px;float: left;width: 100%;
+			}
+			.house_introduce_content_inner_div{
+				font-size: 15px;color: #4e4e4d;margin-top: 6px;width: 100%;
+			}
+		</style>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.enterfocus.js"></script>
+		<script src="../../js/app.js"></script>
+		<script src="../../js/jquery.js"></script>
+		<script src="../../js/vue.min.js "></script>
+	</head>
+	<script language="JavaScript">
+		var currentCityCode = window.localStorage.getItem("currentCityCode") || "";
+		var currentCityName = window.localStorage.getItem("currentCityName") || "";
+	</script>
+	<body id="hotelBody" style="height: 100%;">
+		<!--顶部图片-->
+		<div style="position: absolute;top: 0;left: 0;width: 100%;height: 200px;background-image:url(../../images/hotel/hotel_main_1.png);background-size: 100% auto;background-position: center center;background-repeat: no-repeat;">
+			<div style="margin-top: 30px;">
+				<div class="content_center_vh top_icon" style="float: left;margin-left: 20px;">
+					<span class="mui-icon mui-icon-back" style="color: white;"></span>
+				</div>
+				<div class="content_center_vh top_icon" style="float: right;margin-right: 20px;">
+					<span class="mui-icon mui-icon-redo" style="color: white;"></span>
+				</div>
+				<div class="content_center_vh top_icon" style="float: right;margin-right: 10px;">
+					<span class="mui-icon-extra mui-icon-extra-heart" style="color: white;font-size: 21px;"></span>
+				</div>
+			</div>
+		</div>
+		<div style="overflow-y: auto;overflow-x:hidden;position: absolute;top: 200px;bottom: 50px;width: 100%;" id="containerDiv">
+			<!--房间介绍-->
+			<div class="house_introduce_div">
+				<div class="house_introduce_content_div">
+					<div style="font-size: 16px;">房间介绍</div>
+					<div class="house_introduce_content_inner_div">
+						<div style="float: left;width: 50%;padding: 8px 0px;line-height: 20px;">
+							<div style="float: left;height: 20px;line-height: 20px;"><img src="../../images/icon/home.png" height="20px;"></div>
+							<div style="float: left;margin-left: 6px;font-size: 14px;">房间可住6人</div>
+						</div>
+						<div style="float: left;width: 50%;padding: 8px 0px;line-height: 20px;">
+							<div style="float: left;height: 20px;line-height: 20px;"><img src="../../images/icon/bed.png" height="20px;"></div>
+							<div style="float: left;margin-left: 6px;font-size: 14px;">单人床</div>
+						</div>
+						<div style="float: left;width: 50%;padding: 8px 0px;line-height: 20px;">
+							<div style="float: left;height: 20px;line-height: 20px;"><img src="../../images/icon/home.png" height="20px;"></div>
+							<div style="float: left;margin-left: 6px;font-size: 14px;">房间可住6人</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--优惠券-->
+			<div style="width: 100%;margin-top: 10px;background-color: #ffffff;overflow: hidden;padding: 20px 20px;line-height: 20px;">
+				<div style="float:left;font-size: 16px;">优惠券</div>
+				<div style="float: left;margin-left: 10px;">
+					<div style="background-color: #FD4F01;color: white;font-size: 13px;font-weight:100;">优惠券信息</div>
+				</div>
+				<div style="float: left;margin-left: 10px;">
+					<div style="background-color: #FD4F01;color: white;font-size: 13px;font-weight:100;">优惠券信息</div>
+				</div>
+				<div style="float: right;">
+					<span style="font-size: 16px;color: #7bbbf9;">领取</span>
+					<span class="mui-icon mui-icon-arrowright" style="font-size: 22px;"></span>
+				</div>
+			</div>
+			<!--住客评价-->
+			<div style="width: 100%;background-color: #ffffff;margin-top: 10px;">
+				<div>
+					<div style="margin-left: 20px;float:left;font-size: 16px;margin-top: 10px;">住客评价</div>
+					<div style="margin-right: 10px;float: right;margin-top: 10px;">
+						<span style="font-size: 16px;color: #7bbbf9;">查看全部</span>
+						<span class="mui-icon mui-icon-arrowright" style="font-size: 22px;"></span>
+					</div>
+				</div>
+				<div style="clear: both;">
+					<div style="width: 22%;margin-left: 10px;height: 50px;display:flex;align-items: center;justify-content: center;float: left;">
+						<span style="font-size: 20px;">5.0</span>
+						<span style="font-size: 14px;margin-bottom: -6px;margin-left: 4px;">分</span>
+					</div>
+					<div style="float: left;height: 50px;display:flex;align-items: center;justify-content: center;float: left;">
+						<div style="border: 0.5px solid #eae2e2;height: 25px;"></div>
+					</div>
+					<div style="float: left;width: 50%;height: 50px;margin-left: 20px;">
+						<div class="hotel_evaluation_rate_div">
+							<div style="float: left;">卫生</div>
+							<div class="hotel_evaluation_rate_progress_div"><p class="mui-progressbar" style="height: 4px;" data-progress="70"><span style="transform: translate3d(-30%, 0px, 0px);background-color:#FD4F01;"></span></p></div>
+						</div>
+						<div class="hotel_evaluation_rate_div">
+							<div style="float: left;">设施</div>
+							<div class="hotel_evaluation_rate_progress_div"><p class="mui-progressbar" style="height: 4px;" data-progress="80"><span style="transform: translate3d(-20%, 0px, 0px);background-color:#FD4F01;"></span></p></div>
+						</div>
+						<div class="hotel_evaluation_rate_div">
+							<div style="float: left;">服务</div>
+							<div class="hotel_evaluation_rate_progress_div"><p class="mui-progressbar" style="height: 4px;" data-progress="90"><span style="transform: translate3d(-10%, 0px, 0px);background-color:#FD4F01;"></span></p></div>
+						</div>
+						<div class="hotel_evaluation_rate_div">
+							<div style="float: left;">环境</div>
+							<div class="hotel_evaluation_rate_progress_div"><p class="mui-progressbar" style="height: 4px;" data-progress="100"><span style="transform: translate3d(-0%, 0px, 0px);background-color:#FD4F01;"></span></p></div>
+						</div>
+					</div>
+				</div>
+				<div style="clear: both;padding-bottom: 1px;">
+					<div style="height: 40px;line-height: 40px;">
+						<div style="margin-left: 20px;">
+							<span class="mui-icon mui-icon-contact" style="color: #FD4F01;"></span>
+							<span style="color: #FD4F01;font-size: 12px;color: #787878;">张三</span>
+						</div>
+					</div>
+					<div style="line-height: 20px;margin-left: 20px;margin-right: 20px;font-size: 12px;color: #787878;">
+						评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="position: absolute;bottom: 0;left: 0;width: 100%;">
+			<div style="float: left;width: 50%;height: 50px;">
+				<button type="button" class="mui-btn mui-btn-outlined" style="height: 50px;width:100%;border-radius: 0px;background-color: #f9f9f9;color: gray;border: none;">
+					<span class="mui-icon mui-icon-phone" style="font-size: 20px;"></span>拨打电话
+				</button>
+			</div>
+			<div style="float: left;width: 50%;height: 50px;">
+				<button type="button" class="mui-btn mui-btn-outlined" style="height: 50px;width:100%;border-radius: 0px;">查看房型</button>
+			</div>
+		</div>
+	</body>
+	<script>
+		var model = new Vue({
+			el: '#hotelBody',
+			data: {
+				currentCityCode: currentCityCode||"BJ",
+				currentCityName: currentCityName||"北京"
+			}
+		});
+		(function($) {
+			$.init();
+		})(mui);
+		
+		
+	</script>
+</html>
