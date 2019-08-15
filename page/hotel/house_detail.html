@@ -62,7 +62,7 @@
 					<span class="mui-icon mui-icon-back" style="color: white;"></span>
 				</div>
 				<div class="content_center_vh top_icon" style="float: right;margin-right: 20px;">
-					<span class="mui-icon mui-icon-redo" style="color: white;"></span>
+					<span id="shareSpan" class="mui-icon mui-icon-redo" style="color: white;"></span>
 				</div>
 				<div class="content_center_vh top_icon" style="float: right;margin-right: 10px;">
 					<span class="mui-icon-extra mui-icon-extra-heart" style="color: white;font-size: 21px;"></span>
@@ -163,6 +163,31 @@
 				<button type="button" class="mui-btn mui-btn-outlined" style="height: 50px;width:100%;border-radius: 0px;">查看房型</button>
 			</div>
 		</div>
+		<div style="width: 20px;height:20px;background: url(../../images/icon/share.png);background-position: 0 10px;"></div>
+		<div id="shareShowDiv" style="border-bottom-left-radius:0;border-bottom-right-radius:0;position: absolute;bottom: 0;height: 200px;width: 100%;background-color: white;" class="mui-popover">
+			<div style="font-size: 13px;color: #787878;margin-left: 10px;margin-top: 10px;">分享至</div>
+			<div style="height: 120px;line-height: 120px;text-align: center;display:flex;align-items: center;justify-content: center;">
+				<div style="width: 33%;height: 90px;line-height: 90px;text-align: center;display:flex;align-items: center;justify-content: center;">
+					<div>
+						<div style="width: 60px;height: 60px;background: url(../../images/icon/share.png);background-size: 100%;background-repeat: no-repeat;background-position: 0px 0px;"></div>
+						<div style="width: 60px;height: 20px;line-height: 20px;margin: 5px 0px;">微信</div>
+					</div>
+				</div>
+				<div style="width: 33%;height: 90px;line-height: 90px;text-align: center;display:flex;align-items: center;justify-content: center;">
+					<div>
+						<div style="width: 60px;height: 60px;background: url(../../images/icon/share.png);background-size: 100%;background-repeat: no-repeat;background-position: 0px -60px;"></div>
+						<div style="width: 60px;height: 20px;line-height: 20px;margin: 5px 0px;">QQ</div>
+					</div>
+				</div>
+				<div style="width: 33%;height: 90px;line-height: 90px;text-align: center;display:flex;align-items: center;justify-content: center;">
+					<div>
+						<div style="width: 60px;height: 60px;background: url(../../images/icon/share.png);background-size: 100%;background-repeat: no-repeat;background-position: 0px -122px;"></div>
+						<div style="width: 60px;height: 20px;line-height: 20px;margin: 5px 0px;">微博</div>
+					</div>
+				</div>
+			</div>
+			<div id="shareCancle" style="height: 50px;line-height: 50px;width: 100%;text-align: center;border-top: 1px solid #d4d0d0;">取消</div>
+		</div>
 	</body>
 	<script>
 		var model = new Vue({
@@ -174,6 +199,12 @@
 		});
 		(function($) {
 			$.init();
+			mui("body").on('tap',"#shareSpan",function(){
+				mui('#shareShowDiv').popover("toggle");
+			});
+			mui("#shareShowDiv").on('tap',"#shareCancle",function(){
+				mui('#shareShowDiv').popover("toggle");
+			});
 		})(mui);
 		
 		
