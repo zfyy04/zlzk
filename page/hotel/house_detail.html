@@ -43,6 +43,9 @@
 			.house_introduce_content_inner_div{
 				font-size: 15px;color: #4e4e4d;margin-top: 6px;width: 100%;
 			}
+			.house_detail_bottom_popver_div{
+				border-bottom-left-radius:0;border-bottom-right-radius:0;position: absolute;bottom: 0;width: 100%;background-color: white;
+			}
 		</style>
 		<script src="../../js/mui.min.js"></script>
 		<script src="../../js/mui.enterfocus.js"></script>
@@ -99,7 +102,7 @@
 				<div style="float: left;margin-left: 10px;">
 					<div style="background-color: #FD4F01;color: white;font-size: 13px;font-weight:100;">优惠券信息</div>
 				</div>
-				<div style="float: right;">
+				<div id="getCouponsDiv" style="float: right;">
 					<span style="font-size: 16px;color: #7bbbf9;">领取</span>
 					<span class="mui-icon mui-icon-arrowright" style="font-size: 22px;"></span>
 				</div>
@@ -163,8 +166,8 @@
 				<button type="button" class="mui-btn mui-btn-outlined" style="height: 50px;width:100%;border-radius: 0px;">查看房型</button>
 			</div>
 		</div>
-		<div style="width: 20px;height:20px;background: url(../../images/icon/share.png);background-position: 0 10px;"></div>
-		<div id="shareShowDiv" style="border-bottom-left-radius:0;border-bottom-right-radius:0;position: absolute;bottom: 0;height: 200px;width: 100%;background-color: white;" class="mui-popover">
+		<!--分享div-->
+		<div id="shareShowDiv" style="height: 200px;" class="mui-popover house_detail_bottom_popver_div">
 			<div style="font-size: 13px;color: #787878;margin-left: 10px;margin-top: 10px;">分享至</div>
 			<div style="height: 120px;line-height: 120px;text-align: center;display:flex;align-items: center;justify-content: center;">
 				<div style="width: 33%;height: 90px;line-height: 90px;text-align: center;display:flex;align-items: center;justify-content: center;">
@@ -188,6 +191,11 @@
 			</div>
 			<div id="shareCancle" style="height: 50px;line-height: 50px;width: 100%;text-align: center;border-top: 1px solid #d4d0d0;">取消</div>
 		</div>
+		<!-- 优惠券 -->
+		<div id="couponsDiv" class="mui-popover house_detail_bottom_popver_div">
+			<div style="line-height: 35px;font-size: 13px;color: #787878;margin-left: 10px;float:left">优惠券</div>
+			<div id="cancleCouponsDiv" style="line-height: 35px;float: right;margin-right: 10px;"><span class="mui-icon mui-icon-closeempty"></span></div>
+		</div>
 	</body>
 	<script>
 		var model = new Vue({
@@ -204,6 +212,12 @@
 			});
 			mui("#shareShowDiv").on('tap',"#shareCancle",function(){
 				mui('#shareShowDiv').popover("toggle");
+			});
+			mui("body").on('tap',"#getCouponsDiv",function(){
+				mui('#couponsDiv').popover("toggle");
+			});
+			mui("#couponsDiv").on('tap',"#cancleCouponsDiv",function(){
+				mui('#couponsDiv').popover("toggle");
 			});
 		})(mui);
 		
