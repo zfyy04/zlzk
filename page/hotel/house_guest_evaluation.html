@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>房间详情</title>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.picker.min.css" />
+		<link href="../../css/style.css" rel="stylesheet" />
+		<!--App自定义的css-->
+
+		<style>
+			html,body{height:100%;margin: 0;padding: 0;background-color: #f7f7f7;}
+			.top_icon{
+				height: 30px;width: 30px;background-color: #a29e9e;border-radius: 100%;
+			}
+			.detail_house_feature{
+				border-radius: 100px;
+				margin: 3px;
+				border: 0px solid gray;
+				background-color: #f2f3f7;
+				color: black;
+				line-height: 0.6;
+				font-size: 13px;
+			}
+			.hotel_evaluation_rate_div{
+				float: left;width: 40%;height: 18px;line-height: 18px;margin: 4px 8px;color: #787878;font-size: 12px;
+			}
+			.hotel_evaluation_rate_progress_div{
+				float: left;width: 45px;margin-left: 4px;margin-top: 7px;
+			}
+			.house_introduce_div{
+				width: 100%;background-color: #ffffff;overflow: hidden;padding-bottom: 10px;
+			}
+			.house_introduce_content_div{
+				padding: 0px 20px;margin-top: 8px;float: left;width: 100%;
+			}
+			.house_introduce_content_inner_div{
+				font-size: 15px;color: #4e4e4d;margin-top: 6px;width: 100%;
+			}
+			.house_detail_bottom_popver_div{
+				border-bottom-left-radius:0;border-bottom-right-radius:0;position: absolute;bottom: 0;width: 100%;background-color: white;
+			}
+		</style>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.enterfocus.js"></script>
+		<script src="../../js/app.js"></script>
+		<script src="../../js/jquery.js"></script>
+		<script src="../../js/vue.min.js "></script>
+	</head>
+	<script language="JavaScript">
+		var currentCityCode = window.localStorage.getItem("currentCityCode") || "";
+		var currentCityName = window.localStorage.getItem("currentCityName") || "";
+	</script>
+	<body id="hotelBody" style="height: 100%;width: 100%;position: relative;">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">住客点评</h1>
+		</header>
+		<div style="overflow-y: auto;overflow-x:hidden;position: absolute;width: 100%;top: 44px;" id="containerDiv">
+			<!--住客评价-->
+			<div style="width: 100%;background-color: #ffffff;margin-top: 5px;">
+				<div style="clear: both;">
+					<div style="width: 22%;margin-left: 10px;height: 50px;display:flex;align-items: center;justify-content: center;float: left;">
+						<span style="font-size: 20px;">5.0</span>
+						<span style="font-size: 14px;margin-bottom: -6px;margin-left: 4px;color: #FD4F01;">超棒</span>
+					</div>
+					<div style="float: left;height: 50px;display:flex;align-items: center;justify-content: center;float: left;">
+						<div style="border: 0.5px solid #eae2e2;height: 25px;"></div>
+					</div>
+					<div style="float: left;width: 50%;height: 50px;margin-left: 20px;">
+						<div class="hotel_evaluation_rate_div">
+							<div style="float: left;">卫生</div>
+							<div class="hotel_evaluation_rate_progress_div"><p class="mui-progressbar" style="height: 4px;" data-progress="70"><span style="transform: translate3d(-30%, 0px, 0px);background-color:#FD4F01;"></span></p></div>
+						</div>
+						<div class="hotel_evaluation_rate_div">
+							<div style="float: left;">设施</div>
+							<div class="hotel_evaluation_rate_progress_div"><p class="mui-progressbar" style="height: 4px;" data-progress="80"><span style="transform: translate3d(-20%, 0px, 0px);background-color:#FD4F01;"></span></p></div>
+						</div>
+						<div class="hotel_evaluation_rate_div">
+							<div style="float: left;">服务</div>
+							<div class="hotel_evaluation_rate_progress_div"><p class="mui-progressbar" style="height: 4px;" data-progress="90"><span style="transform: translate3d(-10%, 0px, 0px);background-color:#FD4F01;"></span></p></div>
+						</div>
+						<div class="hotel_evaluation_rate_div">
+							<div style="float: left;">环境</div>
+							<div class="hotel_evaluation_rate_progress_div"><p class="mui-progressbar" style="height: 4px;" data-progress="100"><span style="transform: translate3d(-0%, 0px, 0px);background-color:#FD4F01;"></span></p></div>
+						</div>
+					</div>
+				</div>
+				<div style="clear: both;padding-bottom: 1px;border-bottom: 1px solid #f7f7f7;margin-top: 10px;">
+					<div style="height: 40px;line-height: 40px;">
+						<div style="margin-left: 20px;float: left;">
+							<div style="float: left;">
+								<span class="mui-icon mui-icon-contact" style="color: #FD4F01;font-size: 42px;"></span>
+							</div>
+							<div style="float: left;line-height: 20px;margin-left: 5px;">
+								<div><span style="color: #FD4F01;font-size: 12px;color: #787878;line-height: 20px;">张三</span></div>
+								<div><span style="color: #FD4F01;font-size: 12px;color: #FD4F01;line-height: 20px;">超棒</span></div>
+							</div>
+						</div>
+						<div style="margin-right: 20px;float: right;color: #a9a7a7;font-size: 12px;">
+							消费时间2019/01/01
+						</div>
+					</div>
+					<div style="clear:both;line-height: 20px;margin-left: 20px;margin-right: 20px;font-size: 12px;color: #787878;">
+						评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容
+					</div>
+				</div>
+				<div style="clear: both;padding-bottom: 1px;border-bottom: 1px solid #f7f7f7;margin-top: 10px;">
+					<div style="height: 40px;line-height: 40px;">
+						<div style="margin-left: 20px;float: left;">
+							<div style="float: left;">
+								<span class="mui-icon mui-icon-contact" style="color: #FD4F01;font-size: 42px;"></span>
+							</div>
+							<div style="float: left;line-height: 20px;margin-left: 5px;">
+								<div><span style="color: #FD4F01;font-size: 12px;color: #787878;line-height: 20px;">张三</span></div>
+								<div><span style="color: #FD4F01;font-size: 12px;color: #FD4F01;line-height: 20px;">超棒</span></div>
+							</div>
+						</div>
+						<div style="margin-right: 20px;float: right;color: #a9a7a7;font-size: 12px;">
+							消费时间2019/01/01
+						</div>
+					</div>
+					<div style="clear:both;line-height: 20px;margin-left: 20px;margin-right: 20px;font-size: 12px;color: #787878;">
+						评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容
+					</div>
+				</div>
+				<div style="clear: both;padding-bottom: 1px;border-bottom: 1px solid #f7f7f7;margin-top: 10px;">
+					<div style="height: 40px;line-height: 40px;">
+						<div style="margin-left: 20px;float: left;">
+							<div style="float: left;">
+								<span class="mui-icon mui-icon-contact" style="color: #FD4F01;font-size: 42px;"></span>
+							</div>
+							<div style="float: left;line-height: 20px;margin-left: 5px;">
+								<div><span style="color: #FD4F01;font-size: 12px;color: #787878;line-height: 20px;">张三</span></div>
+								<div><span style="color: #FD4F01;font-size: 12px;color: #FD4F01;line-height: 20px;">超棒</span></div>
+							</div>
+						</div>
+						<div style="margin-right: 20px;float: right;color: #a9a7a7;font-size: 12px;">
+							消费时间2019/01/01
+						</div>
+					</div>
+					<div style="clear:both;line-height: 20px;margin-left: 20px;margin-right: 20px;font-size: 12px;color: #787878;">
+						评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var model = new Vue({
+			el: '#hotelBody',
+			data: {
+				currentCityCode: currentCityCode||"BJ",
+				currentCityName: currentCityName||"北京"
+			}
+		});
+		(function($) {
+			$.init();
+			mui("body").on('tap',"#shareSpan",function(){
+				mui('#shareShowDiv').popover("toggle");
+			});
+			mui("#shareShowDiv").on('tap',"#shareCancle",function(){
+				mui('#shareShowDiv').popover("toggle");
+			});
+			mui("body").on('tap',"#getCouponsDiv",function(){
+				mui('#couponsDiv').popover("toggle");
+			});
+			mui("#couponsDiv").on('tap',"#cancleCouponsDiv",function(){
+				mui('#couponsDiv').popover("toggle");
+			});
+			mui("body").on('tap',"#makeCallBtn",function(){
+				mui('#makeCallDiv').popover("toggle");
+			});
+			mui("#makeCallDiv").on('tap',"#cancleCall",function(){
+				mui('#makeCallDiv').popover("toggle");
+				//取消电话
+			});
+			mui("#makeCallDiv").on('tap',"#ensurCall",function(){
+				mui('#makeCallDiv').popover("toggle");
+				//确定电话
+			});
+
+		})(mui);
+		
+		
+	</script>
+</html>
