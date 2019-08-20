@@ -57,7 +57,7 @@
 		var currentCityCode = window.localStorage.getItem("currentCityCode") || "";
 		var currentCityName = window.localStorage.getItem("currentCityName") || "";
 	</script>
-	<body id="hotelBody" style="height: 100%;">
+	<body id="hotelBody" style="height: 100%;width: 100%;position: relative;">
 		<!--顶部图片-->
 		<div style="position: absolute;top: 0;left: 0;width: 100%;height: 200px;background-image:url(../../images/hotel/hotel_main_1.png);background-size: 100% auto;background-position: center center;background-repeat: no-repeat;">
 			<div style="margin-top: 30px;">
@@ -158,7 +158,7 @@
 		</div>
 		<div style="position: absolute;bottom: 0;left: 0;width: 100%;">
 			<div style="float: left;width: 50%;height: 50px;">
-				<button type="button" class="mui-btn mui-btn-outlined" style="height: 50px;width:100%;border-radius: 0px;background-color: #f9f9f9;color: gray;border: none;">
+				<button id="makeCallBtn" type="button" class="mui-btn mui-btn-outlined" style="height: 50px;width:100%;border-radius: 0px;background-color: #f9f9f9;color: gray;border: none;">
 					<span class="mui-icon mui-icon-phone" style="font-size: 20px;"></span>拨打电话
 				</button>
 			</div>
@@ -196,6 +196,11 @@
 			<div style="line-height: 35px;font-size: 13px;color: #787878;margin-left: 10px;float:left">优惠券</div>
 			<div id="cancleCouponsDiv" style="line-height: 35px;float: right;margin-right: 10px;"><span class="mui-icon mui-icon-closeempty"></span></div>
 		</div>
+		<div id="makeCallDiv" class="mui-popover" style="position: absolute;height: 140px;width: 270px;left: 0;top: 0;right: 0;bottom: 0;margin: auto;border-radius: 5px;border:0.5px solid #c7c7c7;background-color: white;">
+			<div style="height: 90px;line-height: 90px;width: 100%;text-align: center;font-size: 17px;border-bottom: 0.5px solid #c7c7c7;">拨打电话&nbsp;<span>13566666666</span></div>
+			<div id="cancleCall" style="float: left;width: 50%;height: 50px;line-height: 50px;text-align: center;border-right: 0.5px solid #c7c7c7;color: #787878;">取消</div>
+			<div id="ensurCall" style="float: left;width: 50%;height: 50px;line-height: 50px;text-align: center;color: #FD4F01;">确定</div>
+		</div>
 	</body>
 	<script>
 		var model = new Vue({
@@ -219,6 +224,18 @@
 			mui("#couponsDiv").on('tap',"#cancleCouponsDiv",function(){
 				mui('#couponsDiv').popover("toggle");
 			});
+			mui("body").on('tap',"#makeCallBtn",function(){
+				mui('#makeCallDiv').popover("toggle");
+			});
+			mui("#makeCallDiv").on('tap',"#cancleCall",function(){
+				mui('#makeCallDiv').popover("toggle");
+				//取消电话
+			});
+			mui("#makeCallDiv").on('tap',"#ensurCall",function(){
+				mui('#makeCallDiv').popover("toggle");
+				//确定电话
+			});
+
 		})(mui);
 		
 		
